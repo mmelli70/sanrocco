@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>San Rocco — Guest Guide</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
+
+  :root {
+    --cream: #F7F3EE;
+    --warm-white: #FDFAF6;
+    --charcoal: #2C2C2C;
+    --stone: #8C8478;
+    --gold: #B8996A;
+    --gold-light: #D4B896;
+    --border: #E2D9CF;
+    --accent-bg: #F0EAE1;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--charcoal);
+    min-height: 100vh;
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  #splash {
+    position: fixed; inset: 0;
+    background: var(--charcoal);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  #splash.hidden { opacity: 0; visibility: hidden; }
+
+  .splash-ornament {
+    width: 1px; height: 60px;
+    background: var(--gold);
+    margin-bottom: 28px;
+    animation: growLine 1.2s ease forwards;
+    transform-origin: top;
+  }
+  @keyframes growLine { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+
+  .splash-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 8vw, 4.2rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.5s forwards;
+  }
+  .splash-sub {
+    font-size: 0.72rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    margin-top: 10px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.8s forwards;
+  }
+  .splash-location {
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--stone);
+    margin-top: 6px;
+    opacity: 0;
+    animation: fadeUp 1s ease 0.95s forwards;
+  }
+  .splash-ornament2 {
+    width: 1px; height: 60px;
+    background: var(--gold);
+    margin-top: 28px;
+    opacity: 0;
+    animation: fadeUp 1s ease 1s forwards;
+  }
+  .splash-enter {
+    margin-top: 52px;
+    font-size: 0.68rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--stone);
+    cursor: pointer;
+    border: 1px solid #4a4a4a;
+    padding: 14px 32px;
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 1s ease 1.4s forwards;
+  }
+  .splash-enter:hover { border-color: var(--gold); color: var(--gold-light); }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  #app { display: none; flex-direction: column; min-height: 100vh; }
+  #app.visible { display: flex; }
+
+  header {
+    background: var(--charcoal);
+    padding: 20px 24px 16px;
+    text-align: center;
+    position: sticky; top: 0; z-index: 100;
+    border-bottom: 1px solid #3a3a3a;
+  }
+  .header-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.55rem;
+    font-weight: 300;
+    color: var(--warm-white);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+  }
+  .header-tag { font-size: 0.6rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-top: 3px; }
+
+  nav {
+    background: var(--warm-white);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky; top: 72px; z-index: 99;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-item {
+    flex: 0 0 auto;
+    padding: 14px 20px;
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    cursor: pointer;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.25s ease;
+    font-weight: 400;
+  }
+  .nav-item.active { color: var(--charcoal); border-bottom-color: var(--gold); }
+  .nav-item:hover { color: var(--charcoal); }
+
+  main { flex: 1; padding: 0 0 80px; }
+  .section { display: none; animation: sectionIn 0.4s ease; }
+  .section.active { display: block; }
+  @keyframes sectionIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+  .section-hero { background: var(--charcoal); padding: 44px 28px 36px; text-align: center; }
+  .section-icon { font-size: 1.6rem; margin-bottom: 12px; }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 5vw, 2.4rem);
+    font-weight: 300;
+    color: var(--warm-white);
+    letter-spacing: 0.1em;
+  }
+  .section-desc { font-size: 0.75rem; letter-spacing: 0.2em; color: var(--gold-light); text-transform: uppercase; margin-top: 8px; }
+
+  .content-body { padding: 28px 20px; max-width: 680px; margin: 0 auto; }
+
+  .card {
+    background: var(--warm-white);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    padding: 22px 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s ease;
+  }
+  .card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
+  .card-label { font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 500; }
+  .card-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 400; color: var(--charcoal); margin-bottom: 8px; }
+  .card-body { font-size: 0.82rem; line-height: 1.75; color: #5a5550; }
+  .card-detail { display: flex; align-items: flex-start; gap: 10px; margin-top: 10px; font-size: 0.78rem; color: var(--stone); }
+  .card-detail-icon { flex-shrink: 0; font-size: 0.9rem; }
+
+  .card-footer { display: flex; justify-content: flex-end; margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--border); }
+  .map-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--gold);
+    border: 1px solid var(--gold-light);
+    padding: 7px 14px;
+    border-radius: 1px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-family: 'Jost', sans-serif;
+  }
+  .map-btn:hover { background: var(--gold); color: white; border-color: var(--gold); }
+  .map-btn svg { width: 11px; height: 11px; flex-shrink: 0; }
+
+  .rule-item { display: flex; gap: 16px; padding: 18px 0; border-bottom: 1px solid var(--border); align-items: flex-start; }
+  .rule-item:last-child { border-bottom: none; }
+  .rule-num { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 300; color: var(--gold); line-height: 1; flex-shrink: 0; width: 28px; text-align: right; }
+  .rule-title { font-weight: 500; font-size: 0.82rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .rule-text { font-size: 0.78rem; color: #6a6560; line-height: 1.65; }
+
+  .emergency-card { background: var(--charcoal); border-radius: 2px; padding: 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; }
+  .emergency-icon { font-size: 1.5rem; flex-shrink: 0; }
+  .emergency-name { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); }
+  .emergency-number { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 300; color: var(--warm-white); letter-spacing: 0.05em; }
+  .emergency-note { font-size: 0.7rem; color: var(--stone); margin-top: 2px; }
+
+  .wifi-box { background: var(--accent-bg); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 22px 20px; margin-bottom: 20px; border-radius: 2px; }
+  .wifi-label { font-size: 0.6rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; font-weight: 500; }
+  .wifi-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+  .wifi-key { font-size: 0.72rem; color: var(--stone); letter-spacing: 0.1em; text-transform: uppercase; }
+  .wifi-value { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; color: var(--charcoal); font-weight: 400; letter-spacing: 0.05em; }
+
+  .info-box { background: var(--accent-bg); border: 1px solid var(--border); border-left: 3px solid var(--gold); padding: 16px 18px; margin-bottom: 20px; border-radius: 2px; font-size: 0.8rem; line-height: 1.7; color: #5a5550; }
+  .info-box strong { color: var(--charcoal); font-weight: 500; }
+
+  .ornament-divider { display: flex; align-items: center; gap: 12px; margin: 28px 0 20px; }
+  .ornament-divider::before, .ornament-divider::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .ornament-divider span { font-size: 0.58rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); font-weight: 500; }
+
+  .badge { display: inline-block; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; background: var(--gold); color: white; padding: 3px 8px; border-radius: 1px; margin-left: 8px; vertical-align: middle; font-weight: 500; }
+
+  .section-footer { text-align: center; padding: 32px 20px; border-top: 1px solid var(--border); margin-top: 20px; }
+  .section-footer p { font-size: 0.7rem; color: var(--stone); letter-spacing: 0.1em; }
+  .footer-gold { font-family: 'Cormorant Garamond', serif; font-size: 1rem; color: var(--gold); display: block; margin-top: 6px; letter-spacing: 0.15em; }
+</style>
+</head>
+<body>
+
+<div id="splash">
+  <div class="splash-ornament"></div>
+  <div class="splash-title">San Rocco</div>
+  <div class="splash-sub">Bed &amp; Breakfast · Guest Guide</div>
+  <div class="splash-location">Verbania · Lago Maggiore</div>
+  <div class="splash-ornament2"></div>
+  <div class="splash-enter" onclick="enterApp()">Enter &#8594;</div>
+</div>
+
+<div id="app">
+  <header>
+    <div class="header-name">San Rocco</div>
+    <div class="header-tag">Verbania · Lago Maggiore</div>
+  </header>
+
+  <nav id="mainNav">
+    <div class="nav-item active" onclick="showSection('house-rules', this)">House Rules</div>
+    <div class="nav-item" onclick="showSection('restaurants', this)">Restaurants</div>
+    <div class="nav-item" onclick="showSection('shops', this)">Shops</div>
+    <div class="nav-item" onclick="showSection('places', this)">Places</div>
+    <div class="nav-item" onclick="showSection('transport', this)">Transport</div>
+    <div class="nav-item" onclick="showSection('emergency', this)">Emergency</div>
+    <div class="nav-item" onclick="showSection('wifi', this)">WiFi &amp; Info</div>
+  </nav>
+
+  <main>
+
+    <!-- HOUSE RULES -->
+    <div class="section active" id="house-rules">
+      <div class="section-hero">
+        <div class="section-icon">🏡</div>
+        <div class="section-title">House Rules</div>
+        <div class="section-desc">Please read before settling in</div>
+      </div>
+      <div class="content-body">
+        <div class="rule-item">
+          <div class="rule-num">1</div>
+          <div class="rule-content">
+            <div class="rule-title">Check-in &amp; Check-out</div>
+            <div class="rule-text">Check-in: from 3:00 PM · Check-out: by 10:30 AM. Please notify us if you expect to arrive late — we are happy to accommodate. Early check-in and late check-out may be arranged upon request.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">2</div>
+          <div class="rule-content">
+            <div class="rule-title">Quiet Hours</div>
+            <div class="rule-text">We kindly ask guests to observe quiet hours between 11:00 PM and 8:00 AM. Please keep voices low and avoid loud music out of respect for other guests and neighbours.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">3</div>
+          <div class="rule-content">
+            <div class="rule-title">No Smoking</div>
+            <div class="rule-text">San Rocco is entirely smoke-free indoors. Smoking is permitted only in the designated outdoor area. Thank you for your cooperation.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">4</div>
+          <div class="rule-content">
+            <div class="rule-title">Pets</div>
+            <div class="rule-text">Pets are not permitted inside the property unless previously agreed in writing. Please contact us in advance if you are travelling with an animal.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">5</div>
+          <div class="rule-content">
+            <div class="rule-title">Guests &amp; Visitors</div>
+            <div class="rule-text">Only registered guests are permitted to stay overnight. Visitors must leave by 10:00 PM and should not access the common areas without prior notice.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">6</div>
+          <div class="rule-content">
+            <div class="rule-title">Keys &amp; Access</div>
+            <div class="rule-text">You will be given one set of keys upon arrival. Please return them at check-out. Lost keys may incur a replacement fee. Do not duplicate the keys.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">7</div>
+          <div class="rule-content">
+            <div class="rule-title">Linen &amp; Towels</div>
+            <div class="rule-text">Fresh linen is provided at the beginning of your stay. For stays longer than 4 nights, a change of linen is included. Please hang towels to reuse — laundry has an environmental cost.</div>
+          </div>
+        </div>
+        <div class="rule-item">
+          <div class="rule-num">8</div>
+          <div class="rule-content">
+            <div class="rule-title">Damages</div>
+            <div class="rule-text">Please treat the property with care. Any damage caused intentionally or through negligence will be charged accordingly. Report any pre-existing damage at check-in to avoid misunderstandings.</div>
+          </div>
+        </div>
+        <div class="section-footer">
+          <p>We hope you enjoy your time with us.</p>
+          <span class="footer-gold">San Rocco B&amp;B · Verbania</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESTAURANTS -->
+    <div class="section" id="restaurants">
+      <div class="section-hero">
+        <div class="section-icon">🍽️</div>
+        <div class="section-title">Restaurants</div>
+        <div class="section-desc">Our personal recommendations in Verbania</div>
+      </div>
+      <div class="content-body">
+        <div class="info-box">
+          Verbania's cuisine blends <strong>lake fish</strong> (lavarello, persico, trota) with hearty <strong>Piemontese tradition</strong> — risotti, polenta concia, pasta al plin. Most restaurants are in the <strong>Pallanza</strong> and <strong>Intra</strong> districts, often with beautiful lakeside terraces.
+        </div>
+
+        <div class="ornament-divider"><span>Fine Dining</span></div>
+
+        <div class="card">
+          <div class="card-label">2 Michelin Stars <span class="badge">Exceptional</span></div>
+          <div class="card-title">Piccolo Lago — Chef Marco Sacco</div>
+          <div class="card-body">One of the finest dining experiences in Northern Italy. Set on the peaceful Lago di Mergozzo just minutes from Verbania, Marco Sacco's two-starred restaurant offers refined modern Italian cuisine with spectacular lakeside views. Reserve well in advance — this is a destination in itself.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Filippo Turati, 87 · Mergozzo (5 min by car)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 586792</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€€€ · Reservation essential</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Piccolo+Lago+Ristorante+Via+Filippo+Turati+87+Mergozzo" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Restaurant · Gourmet</div>
+          <div class="card-title">Il Portale — Chef Massimiliano Celeste</div>
+          <div class="card-body">A highly regarded contemporary restaurant on Pallanza's central lakeside square. The menu leans towards fresh seafood with some lake specialities and meat dishes. A refined setting — ideal for a special dinner outdoors in summer.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Sassello, 3 · Pallanza</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 505486</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Closed Jan, 2 wks Nov, Tue &amp; Mon/Wed lunch</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€€€ · Booking strongly advised</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Il+Portale+Ristorante+Via+Sassello+3+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="ornament-divider"><span>Traditional &amp; Local</span></div>
+
+        <div class="card">
+          <div class="card-label">Osteria · Founded 1854 <span class="badge">Host Favourite</span></div>
+          <div class="card-title">Antica Osteria il Monte Rosso</div>
+          <div class="card-body">One of the oldest osterias in Italy, restored to its early 1900s character with vintage furnishings and a visible open kitchen. The menu features local lake fish, baccalà, handmade pasta and Piemontese classics, all made with seasonal quality ingredients. A small panoramic terrace overlooking the Suna lakefront. Highly recommended.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Troubetzkoy, 128 · Suna (Verbania)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 506056</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€€ · Booking recommended</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Antica+Osteria+il+Monte+Rosso+Via+Troubetzkoy+128+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Osteria · Lakefront terrace</div>
+          <div class="card-title">Hosteria Dam a Traa — La Comunella</div>
+          <div class="card-body">A welcoming lakefront osteria on the Pallanza shore with a large terrace overlooking the Borromean Gulf. The menu mixes Ossolane specialities with Mediterranean flavours — generous portions, good local wine and honest prices. Perfect for a relaxed summer dinner watching the sunset.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Troubetzkoy, 106 · Suna (Verbania)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 557152</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€ · Good value</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Hosteria+Dam+a+Traa+La+Comunella+Via+Troubetzkoy+106+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Restaurant · Romantic lake view</div>
+          <div class="card-title">Ristorante Milano</div>
+          <div class="card-body">A classic Verbania restaurant on the Pallanza waterfront, with traditional fish and meat cuisine and beautiful lake views. One of the most romantic spots in town for a candlelit dinner — the terrace in summer is particularly atmospheric.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Corso Zanitiello, 2 · Pallanza</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 556816</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€€</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Ristorante+Milano+Corso+Zanitiello+2+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="ornament-divider"><span>Casual &amp; Everyday</span></div>
+
+        <div class="card">
+          <div class="card-label">Social Restaurant · Pizza &amp; Cucina</div>
+          <div class="card-title">Gattabuia</div>
+          <div class="card-body">A unique and much-loved Verbania institution: a social restaurant combining excellent wood-fired pizza with traditional Italian cooking and a meaningful community inclusion project. Genuinely good food, warm atmosphere, great value.</div>
+          <div class="card-detail"><span class="card-detail-icon">🌐</span><span>gattabuia.org · check for current address</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Osteria · Wine &amp; Aperitivo</div>
+          <div class="card-title">Osteria del Riccio</div>
+          <div class="card-body">A charming small osteria tucked in a lane in Pallanza. Excellent for aperitivo or a light dinner with traditional fish and meat dishes and a good local wine list. Very popular with locals — one of those places you might not want to share.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Vicolo dell'Arco, 1 · Pallanza</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 392 4656770</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€€</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Osteria+del+Riccio+Vicolo+dell+Arco+1+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="section-footer">
+          <p>Ask your host for the latest tips — restaurants change seasonally.</p>
+          <span class="footer-gold">Buon appetito ✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- SHOPS -->
+    <div class="section" id="shops">
+      <div class="section-hero">
+        <div class="section-icon">🛒</div>
+        <div class="section-title">Supermarkets &amp; Shops</div>
+        <div class="section-desc">Everything you need in Verbania</div>
+      </div>
+      <div class="content-body">
+
+        <div class="ornament-divider"><span>Supermarkets</span></div>
+
+        <div class="card">
+          <div class="card-label">Supermarket · Large <span class="badge">Best Option</span></div>
+          <div class="card-title">Esselunga</div>
+          <div class="card-body">Verbania's most popular supermarket — well stocked, competitive prices, excellent fresh counters for meat, fish, deli and pastry. Spacious, with ample parking and self-checkout. Widely considered the best supermarket in the province.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Viale Azari, 94 · Verbania</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 505355</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Mon–Sat 7:30–21:00 · Sun 8:00–20:00</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Esselunga+Viale+Azari+94+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Hypermarket</div>
+          <div class="card-title">Bennet</div>
+          <div class="card-body">A large hypermarket with a wide range of food, electronics, clothing and household goods. Good for a comprehensive shop or stocking up. Located on the outskirts near Intra.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Guido Rossa, 31 · Verbania (Intra area)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 402362</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Bennet+Via+Guido+Rossa+31+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Mini Market · Daily essentials</div>
+          <div class="card-title">Carrefour Express</div>
+          <div class="card-body">Convenient neighbourhood market for daily basics, fresh produce and pantry items. The Via Marconi branch is centrally located in the Pallanza area.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Marconi, 5/7 · Verbania (Pallanza)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 505465</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Mon–Sat 8:15–12:45 / 15:30–19:30 · Sun 8:30–12:30</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Carrefour+Express+Via+Marconi+5+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Discount · Budget</div>
+          <div class="card-title">Lidl &amp; Eurospin</div>
+          <div class="card-body">Both discount chains are present in Verbania. Ideal for budget shopping — basics, drinks, snacks and packaged goods at very competitive prices. Multiple locations across Intra and Fondotoce.</div>
+        </div>
+
+        <div class="ornament-divider"><span>Markets &amp; Specialists</span></div>
+
+        <div class="card">
+          <div class="card-label">Weekly Market <span class="badge">Don't Miss</span></div>
+          <div class="card-title">Mercato Settimanale di Intra</div>
+          <div class="card-body">Verbania's lively weekly market fills the streets of Intra every Wednesday morning. Fresh local produce, cheeses, cured meats, clothing, flowers and household items. A beloved local tradition and a wonderful way to experience everyday life on the lake.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Intra town centre · Every Wednesday</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>7:30–13:00</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Piazza+Ranzoni+Intra+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Pharmacy</div>
+          <div class="card-title">Farmacie (multiple in Verbania)</div>
+          <div class="card-body">Pharmacies are available throughout Intra and Pallanza — look for the green cross symbol. Night-duty (Farmacia di turno) details are posted on each pharmacy's door. Most staff have basic English. For urgent night advice call 1500 (free, national).</div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Typically Mon–Fri 9:00–12:30 / 15:30–19:30</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>1500 · night duty info (free)</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Tabacchi · ATM</div>
+          <div class="card-title">Tabaccheria (various)</div>
+          <div class="card-body">Tabacchi (blue "T" sign) sell stamps, bus tickets, scratch cards and phone top-ups. ATMs (Bancomat) are widely available throughout Intra and Pallanza town centres.</div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Typically daily 7:00–19:30</span></div>
+        </div>
+
+        <div class="section-footer">
+          <p>Verbania's two main commercial areas are Intra and Pallanza.</p>
+          <span class="footer-gold">San Rocco B&amp;B</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- PLACES TO VISIT -->
+    <div class="section" id="places">
+      <div class="section-hero">
+        <div class="section-icon">🗺️</div>
+        <div class="section-title">Places to Visit</div>
+        <div class="section-desc">The garden on Lake Maggiore</div>
+      </div>
+      <div class="content-body">
+
+        <div class="info-box">
+          Verbania is known as <strong>"il giardino sul Lago Maggiore"</strong> — a city of historic villas, world-class botanical parks and a spectacular lakefront promenade. It comprises 12 hamlets; the main ones for visitors are <strong>Pallanza</strong> and <strong>Intra</strong>.
+        </div>
+
+        <div class="ornament-divider"><span>In Verbania</span></div>
+
+        <div class="card">
+          <div class="card-label">Botanical Garden <span class="badge">Must-See</span></div>
+          <div class="card-title">Giardini Botanici di Villa Taranto</div>
+          <div class="card-body">One of the most celebrated botanical gardens in the world — 16 hectares with over 20,000 plant varieties and 80,000 flowering bulbs. Founded in 1931 by Scottish captain Neil McEacharn. The blooms are extraordinary: tulips in spring, lotus flowers in summer, dahlias from July to October. An absolute highlight of any visit to Verbania.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Vittorio Veneto · Pallanza (lakefront)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Open April–October · 8:30–18:30</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>€13 gardens / €15 full · villataranto.it</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Giardini+Botanici+Villa+Taranto+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Lakefront Promenade</div>
+          <div class="card-title">Lungolago di Pallanza</div>
+          <div class="card-body">The jewel of Verbania — a scenic waterfront promenade lined with magnolias, oleanders and historic villas. <strong>Villa Giulia</strong> (neoclassical, public garden) and <strong>Villa San Remigio</strong> (baroque, 19th century, private but visitable externally) are both worth admiring. The panorama across the Borromean Gulf is unforgettable. The full Pallanza–Suna walk is about 3–4 km.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Pallanza waterfront · Always open · Free</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Lungolago+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Museum · Art &amp; Culture</div>
+          <div class="card-title">Museo del Paesaggio</div>
+          <div class="card-body">Housed in the baroque Palazzo Viani-Dugnani in Pallanza, this museum holds the most important art collection on Lake Maggiore — 19th–20th century Piemontese and Lombard paintings, plus the sculptural works of Paolo Troubetzkoy. Visiting here helps make sense of the art you will notice throughout the city.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Ruga, 44 · Pallanza</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Tue–Sun 10:00–18:00 (seasonal)</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Museo+del+Paesaggio+Via+Ruga+44+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Church · National Monument</div>
+          <div class="card-title">Chiesa della Madonna di Campagna</div>
+          <div class="card-body">A national monument and one of the finest Renaissance churches on Lake Maggiore, built over an older Romanesque site — the original bell tower is the only visible remnant. Inside are masterpieces by Camillo Procaccini, Aurelio Luini and other Lombard painters.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Pallanza · near Villa Taranto · Free</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Chiesa+Madonna+di+Campagna+Pallanza+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Church · Baroque · Intra</div>
+          <div class="card-title">Basilica di San Vittore</div>
+          <div class="card-body">The iconic 18th-century landmark of Intra, visible from the lake and declared a national monument. Built on an ancient proto-Christian site. Inside: a notable organ and paintings by Daniele Ranzoni. Eight bells in the campanile cast by the renowned Mazzola foundry.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Intra town centre · Free</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Basilica+San+Vittore+Intra+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Nature Reserve · Birdwatching</div>
+          <div class="card-title">Riserva Naturale di Fondotoce</div>
+          <div class="card-body">A peaceful nature reserve at the mouth of the River Toce, between Pallanza and Intra. Reedbeds and over 120 bird species. Walking and cycling paths wind through the reserve — a beautiful escape from the town, especially early in the morning.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Fondotoce · Free · Always open</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Riserva+Naturale+Fondotoce+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="ornament-divider"><span>Day Trips</span></div>
+
+        <div class="card">
+          <div class="card-label">Day Trip <span class="badge">Iconic</span></div>
+          <div class="card-title">Isole Borromee</div>
+          <div class="card-body">The three Borromean Islands are the crown jewels of Lake Maggiore. <strong>Isola Bella</strong>: baroque Palazzo Borromeo and spectacular terraced Italian gardens. <strong>Isola Madre</strong>: lush botanical garden with exotic plants, peacocks and parrots. <strong>Isola dei Pescatori</strong>: picturesque fishing village — no admission fee, open year-round. Ferries depart from the Intra and Pallanza piers.</div>
+          <div class="card-detail"><span class="card-detail-icon">⛴️</span><span>Navigazione Laghi · navigazionelaghi.it</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Depart from Intra (Vecchio Imbarcadero) or Pallanza pier</span></div>
+          <div class="card-footer"><a class="map-btn" href="https://maps.google.com/?q=Imbarcadero+Intra+Verbania" target="_blank"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Open in Maps</a></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Day Trip · Adventure</div>
+          <div class="card-title">Lago Maggiore Zipline</div>
+          <div class="card-body">A thrilling 1,850-metre steel cable running at 350 metres above the lake at over 120 km/h. Departing from Pian d'Arla and arriving at Alpe Segletta in the Valle Intrasca above Verbania. One of the most spectacular ziplines in Europe.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Valle Intrasca · above Verbania</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>Booking required · seasonal operation</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Day Trip · Mountain viewpoint</div>
+          <div class="card-title">Mottarone (1,491 m)</div>
+          <div class="card-body">A spectacular peak between Lake Maggiore and Lake Orta, offering one of the finest panoramic views in Northern Italy. Take the Stresa–Mottarone cable car (from Stresa, ~30 min drive south). Walking and cycling in summer; ski slopes in winter. The Alpyland alpine coaster is popular with families.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Cable car from Stresa · ~30 min by car</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🌐</span><span>stresa-mottarone.it</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Day Trip · Northern Lake</div>
+          <div class="card-title">Cannobio</div>
+          <div class="card-body">A charming village near the Swiss border, ~30 km north of Verbania. Its beautiful tree-lined lungolago is ideal for a romantic evening walk. The surrounding valleys offer excellent hiking, including the dramatic <strong>Orrido di Sant'Anna</strong> gorge. Good for water sports in summer.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>~30 km north of Verbania via SS34</span></div>
+        </div>
+
+        <div class="section-footer">
+          <p>Verbania is also an excellent base for day trips into Switzerland.</p>
+          <span class="footer-gold">Enjoy every moment ✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- TRANSPORT -->
+    <div class="section" id="transport">
+      <div class="section-hero">
+        <div class="section-icon">🚌</div>
+        <div class="section-title">Transport</div>
+        <div class="section-desc">Getting around Verbania &amp; the lake</div>
+      </div>
+      <div class="content-body">
+
+        <div class="ornament-divider"><span>By Bus</span></div>
+
+        <div class="card">
+          <div class="card-label">Local &amp; Regional Bus</div>
+          <div class="card-title">VCO Trasporti</div>
+          <div class="card-body">The main public bus operator covering Verbania and the province. Urban lines connect Intra, Pallanza, Fondotoce and the train station (every ~30 min). <strong>Line 3</strong> runs north to Cannobio and into Switzerland (Brissago). Tickets and timetables at vcotrasporti.it. Freephone: 800 503001.</div>
+          <div class="card-detail"><span class="card-detail-icon">🌐</span><span>vcotrasporti.it</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 518611 · Freephone 800 503001</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Bus · South Lake &amp; Airport</div>
+          <div class="card-title">Autoservizi SAF / Nerini</div>
+          <div class="card-body">SAF (Autoservizi Nerini) runs routes to Arona, Novara, Miazzina and Valle Intrasca. Also operates the <strong>Malpensa Airport Alibus shuttle</strong> — booking required by 11:00 the day before. Journey time to Malpensa: approx. 1 hour.</div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 552172</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🛫</span><span>Malpensa shuttle — advance booking required</span></div>
+        </div>
+
+        <div class="ornament-divider"><span>By Train</span></div>
+
+        <div class="card">
+          <div class="card-label">Railway Station</div>
+          <div class="card-title">Stazione Verbania-Pallanza</div>
+          <div class="card-body">Verbania's station is on the <strong>Milan–Domodossola international line</strong> (Trenitalia). Direct trains to Milan Centrale (approx. 1h 20 min). The station is in Fondotoce, 8 km from the town centre — VCO Trasporti buses connect every ~30 minutes. Taxis available at the station coinciding with train arrivals. Alternative route: Trenord to Laveno, then Laveno–Intra ferry.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Fondotoce · 8 km from Pallanza/Intra</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🌐</span><span>trenitalia.com</span></div>
+        </div>
+
+        <div class="ornament-divider"><span>By Boat</span></div>
+
+        <div class="card">
+          <div class="card-label">Lake Ferries <span class="badge">Highly Recommended</span></div>
+          <div class="card-title">Navigazione Laghi</div>
+          <div class="card-body">The public lake ferry is the most scenic way to explore Lake Maggiore. Scheduled routes connect Verbania (Intra and Pallanza piers) to the Borromean Islands, Stresa, Baveno and all lakeside towns up to <strong>Locarno, Switzerland</strong>. A vehicle car ferry also links Verbania Intra to Laveno on the Lombardy shore.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Intra — Vecchio Imbarcadero · and Pallanza pier</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🌐</span><span>navigazionelaghi.it</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0322 233230</span></div>
+        </div>
+
+        <div class="ornament-divider"><span>By Taxi &amp; Other</span></div>
+
+        <div class="card">
+          <div class="card-label">Taxi</div>
+          <div class="card-title">Local Taxi</div>
+          <div class="card-body">Taxis are stationed at <strong>Verbania Intra</strong> in front of the Vecchio Imbarcadero pier and at <strong>Verbania-Pallanza railway station</strong> (coinciding with train arrivals). Book in advance for airport transfers or late-night rides.</div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 404444</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Bike Sharing · Electric</div>
+          <div class="card-title">Vaimoo E-Bike Sharing</div>
+          <div class="card-body">Electric bike sharing is available in Verbania through the Vaimoo app — a great way to explore the lakefront and connect between Intra, Pallanza and Fondotoce. Download the app before you arrive.</div>
+          <div class="card-detail"><span class="card-detail-icon">📱</span><span>vaimoo.app</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Tourist Tram · Seasonal</div>
+          <div class="card-title">Trenino Turistico di Verbania</div>
+          <div class="card-body">A small tourist train departing from Villa Taranto, covering the main lakefront sights. A relaxed and enjoyable way to see Verbania, especially with children. Day ticket includes unlimited hop-on hop-off.</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Departs from Villa Taranto · Seasonal (not Tuesdays)</span></div>
+          <div class="card-detail"><span class="card-detail-icon">💶</span><span>Adults €5 · Children (2–10) €3 · Under 2 free</span></div>
+        </div>
+
+        <div class="section-footer">
+          <p>From Milan Malpensa airport: approx. 1 hour by car or Alibus shuttle.</p>
+          <span class="footer-gold">Safe travels ✦</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EMERGENCY -->
+    <div class="section" id="emergency">
+      <div class="section-hero">
+        <div class="section-icon">🚨</div>
+        <div class="section-title">Emergency Contacts</div>
+        <div class="section-desc">Important numbers to keep handy</div>
+      </div>
+      <div class="content-body">
+
+        <div class="ornament-divider"><span>Emergency Services</span></div>
+
+        <div class="emergency-card">
+          <div class="emergency-icon">🚑</div>
+          <div>
+            <div class="emergency-name">Medical Emergency — Ambulance</div>
+            <div class="emergency-number">118</div>
+            <div class="emergency-note">24/7 · Italy-wide</div>
+          </div>
+        </div>
+
+        <div class="emergency-card">
+          <div class="emergency-icon">🚒</div>
+          <div>
+            <div class="emergency-name">Fire Brigade — Vigili del Fuoco</div>
+            <div class="emergency-number">115</div>
+            <div class="emergency-note">24/7</div>
+          </div>
+        </div>
+
+        <div class="emergency-card">
+          <div class="emergency-icon">👮</div>
+          <div>
+            <div class="emergency-name">European Emergency — All services</div>
+            <div class="emergency-number">112</div>
+            <div class="emergency-note">Works from any phone, even with no SIM · 24/7</div>
+          </div>
+        </div>
+
+        <div class="emergency-card">
+          <div class="emergency-icon">🚔</div>
+          <div>
+            <div class="emergency-name">Polizia di Stato</div>
+            <div class="emergency-number">113</div>
+            <div class="emergency-note">State Police · 24/7</div>
+          </div>
+        </div>
+
+        <div class="ornament-divider"><span>Your Host</span></div>
+
+        <div class="emergency-card">
+          <div class="emergency-icon">🏡</div>
+          <div>
+            <div class="emergency-name">San Rocco — Your Host</div>
+            <div class="emergency-number">+39 [YOUR NUMBER]</div>
+            <div class="emergency-note">For any issue at the property · 8:00–22:00</div>
+          </div>
+        </div>
+
+        <div class="ornament-divider"><span>Medical in Verbania</span></div>
+
+        <div class="card">
+          <div class="card-label">Hospital · A&amp;E</div>
+          <div class="card-title">Ospedale SS. Trinità — Verbania</div>
+          <div class="card-body">Verbania's main hospital with a 24/7 Pronto Soccorso (A&amp;E) department. For non-urgent medical needs outside pharmacy hours, the <strong>Guardia Medica</strong> (out-of-hours GP service) operates overnight. For pharmacy night duty information call 1500 (free, national).</div>
+          <div class="card-detail"><span class="card-detail-icon">📍</span><span>Via Circonvallazione, 30 · Verbania</span></div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>+39 0323 541111</span></div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>Pronto Soccorso: 24/7</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Night Pharmacy</div>
+          <div class="card-title">Farmacia di Turno</div>
+          <div class="card-body">Night-duty pharmacy information rotates weekly and is posted on the door of every pharmacy in Verbania. You can also call the national health line for guidance at any hour.</div>
+          <div class="card-detail"><span class="card-detail-icon">📞</span><span>1500 · National health info (free, 24/7)</span></div>
+        </div>
+
+        <div class="section-footer">
+          <p>In any doubt, call your host first — we will guide you.</p>
+          <span class="footer-gold">San Rocco B&amp;B · Verbania</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- WIFI & INFO -->
+    <div class="section" id="wifi">
+      <div class="section-hero">
+        <div class="section-icon">📶</div>
+        <div class="section-title">WiFi &amp; Practical Info</div>
+        <div class="section-desc">Everything you need to know</div>
+      </div>
+      <div class="content-body">
+
+        <div class="ornament-divider"><span>WiFi</span></div>
+
+        <div class="wifi-box">
+          <div class="wifi-label">Wireless Network</div>
+          <div class="wifi-row">
+            <span class="wifi-key">Network (SSID)</span>
+            <span class="wifi-value">SanRocco_Guest</span>
+          </div>
+          <div class="wifi-row">
+            <span class="wifi-key">Password</span>
+            <span class="wifi-value">[YOUR PASSWORD]</span>
+          </div>
+          <div class="wifi-row" style="margin-bottom:0">
+            <span class="wifi-key">Speed</span>
+            <span class="wifi-value">Fibre · Fast</span>
+          </div>
+        </div>
+
+        <div class="ornament-divider"><span>Practical Info</span></div>
+
+        <div class="card">
+          <div class="card-label">Breakfast</div>
+          <div class="card-title">Morning Service</div>
+          <div class="card-body">Breakfast is served daily in the dining room. Please let us know your dietary requirements or allergies in advance — gluten-free and vegetarian options available on request.</div>
+          <div class="card-detail"><span class="card-detail-icon">🕐</span><span>7:30–10:00 · Daily</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Currency &amp; Payments</div>
+          <div class="card-title">Money in Verbania</div>
+          <div class="card-body">Italy uses the Euro (€). Cards are widely accepted in restaurants, shops and supermarkets. Carry some cash for the weekly market, small bars and tabacchi. ATMs (Bancomat) are widely available in both Intra and Pallanza.</div>
+          <div class="card-detail"><span class="card-detail-icon">🏧</span><span>ATMs throughout Intra and Pallanza centres</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Electricity</div>
+          <div class="card-title">Power Sockets</div>
+          <div class="card-body">Italy uses Type F and Type L sockets at 230V / 50Hz. Universal adapters are available on request from your host. USB charging points are provided in each room.</div>
+          <div class="card-detail"><span class="card-detail-icon">🔌</span><span>Type F / Type L · 230V · 50Hz</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Best Time to Visit</div>
+          <div class="card-title">Seasons on Lake Maggiore</div>
+          <div class="card-body"><strong>Spring (Apr–Jun):</strong> Ideal — tulips and blooms at Villa Taranto, mild temperatures, fewer crowds.<br><strong>Summer (Jul–Aug):</strong> Warm and lively; perfect for boat trips, swimming and lakeside dining.<br><strong>Autumn (Sep–Oct):</strong> Beautiful golden light, dahlias still in bloom, a quieter and more local atmosphere.<br><strong>Winter:</strong> Very peaceful; many gardens and restaurants close seasonally.</div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Useful Links</div>
+          <div class="card-title">Online Resources</div>
+          <div class="card-body">
+            <strong>Lake ferries:</strong> navigazionelaghi.it<br>
+            <strong>Trains:</strong> trenitalia.com<br>
+            <strong>Local buses:</strong> vcotrasporti.it<br>
+            <strong>Villa Taranto:</strong> villataranto.it<br>
+            <strong>Tourism Verbania:</strong> viviverbania.it<br>
+            <strong>Malpensa shuttle:</strong> +39 0323 552172
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Language</div>
+          <div class="card-title">Useful Italian Phrases</div>
+          <div class="card-body">
+            Buongiorno — Good morning<br>
+            Buonasera — Good evening<br>
+            Grazie — Thank you<br>
+            Per favore — Please<br>
+            Dov'è…? — Where is…?<br>
+            Il conto, per favore — The bill, please<br>
+            Un caffè, per favore — A coffee, please<br>
+            Parla inglese? — Do you speak English?
+          </div>
+        </div>
+
+        <div class="section-footer">
+          <p>We hope your stay in Verbania is truly unforgettable.</p>
+          <span class="footer-gold">Benvenuti sul Lago Maggiore ✦</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<script>
+  function enterApp() {
+    document.getElementById('splash').classList.add('hidden');
+    const app = document.getElementById('app');
+    app.classList.add('visible');
+    setTimeout(() => { document.getElementById('splash').style.display = 'none'; }, 900);
+  }
+  function showSection(id, el) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    el.classList.add('active');
+    el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+  setTimeout(() => {
+    if (!document.getElementById('app').classList.contains('visible')) enterApp();
+  }, 5000);
+</script>
+</body>
+</html>
