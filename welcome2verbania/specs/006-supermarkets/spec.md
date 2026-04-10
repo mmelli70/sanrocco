@@ -2,7 +2,7 @@
 
 **Feature Branch**: `006-supermarkets`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "for the section supermarket, it will be shown a list of shops, using the same layout as beaches. Name, Google Maps link, description and a star if preferred"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -95,7 +95,8 @@ no other changes required.
 ### Key Entities
 
 - **Shop**: A data record. Fields: `name` (string), `description` (string),
-  `mapsUrl` (optional string), `favourite` (boolean, default `false`).
+  `mapsUrl` (optional string), `favourite` (boolean, default `false`),
+  `it` (optional string — Italian description), `de` (optional string — German description).
 - **Favourite Indicator**: A ★ symbol and/or badge shown only when `favourite: true`.
   Visually identical to the indicator used in the Beaches section.
 
@@ -124,7 +125,8 @@ no other changes required.
 - "Supermarkets" is used as the section name but in practice the list may include
   any type of shop (grocery, bakery, market). The data structure does not restrict
   shop type.
-- Translation is out of scope for the initial English-only version.
+- Translation is implemented for IT and DE — each shop entry has `it` and `de`
+  description fields alongside the English `description`.
 
 ## Seed Content
 

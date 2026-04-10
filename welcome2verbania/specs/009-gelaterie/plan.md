@@ -1,6 +1,7 @@
 # Implementation Plan: Gelaterie Section
 
 **Branch**: `009-gelaterie` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -54,3 +55,10 @@ Gelato d'Altri Tempi, Gelatomania, K2 (Pallanza), ★ Gelateria Aurora (Mergozzo
 - All 4 cards render at 360 dp ✅
 - Gelateria Aurora shows ★ badge ✅
 - Maps links open ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **No rating/price fields**: These were removed — only `name`, `description`, `mapsUrl`,
+  and `favourite` fields exist in the data model.
+- **Multilingual**: Each gelateria entry has `it` and `de` description fields for Italian
+  and German translations.

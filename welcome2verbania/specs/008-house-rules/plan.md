@@ -1,6 +1,7 @@
 # Implementation Plan: House Rules
 
 **Branch**: `008-house-rules` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -62,3 +63,10 @@ index.html   ← add #house-rules screen with 8 sub-section blocks
 - All 8 sub-sections visible and readable at 360 dp ✅
 - Warning boxes visually different from info boxes ✅
 - WiFi SSID and password readable at a glance ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **8 sub-sections implemented**: checkin, smoking, city tax, wifi, dishwasher (kitchen),
+  aircon, waste, jacuzzi — all complete and translated.
+- **Waste schedule**: Mon–Sat day-by-day waste disposal schedule in all 3 languages.
+- **All text in strings.en/it/de**: Fully translated to Italian and German.

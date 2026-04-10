@@ -1,6 +1,7 @@
 # Implementation Plan: Welcome Page
 
 **Branch**: `001-welcome-page` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 **Input**: Feature specification from `specs/001-welcome-page/spec.md`
 
 ## Summary
@@ -20,7 +21,7 @@ assets are inlined; the file works with zero network access.
 **Project Type**: Single-file static HTML document  
 **Performance Goals**: Full render in < 2 s on a mid-range smartphone with airplane mode on  
 **Constraints**: Single `.html` file; all images encoded as base64 data URIs; no `<link>` or `<script src>` pointing outside the file  
-**Scale/Scope**: 1 deliverable file, 1 screen (welcome/cover), 1 active language (EN); architecture supports 3 languages (IT, EN, DE)
+**Scale/Scope**: 1 deliverable file, 1 screen (welcome/cover), 3 languages (EN/IT/DE all active); `initApp()` called immediately at script parse time for WhatsApp WebView compatibility
 
 ## Constitution Check
 
@@ -31,7 +32,7 @@ assets are inlined; the file works with zero network access.
 | I. Self-Contained | ✅ PASS | Single HTML; image inlined as base64; no CDN or external refs |
 | II. Offline-First | ✅ PASS | No network calls at any point |
 | III. Mobile-First | ✅ PASS | Designed for 360 dp viewport; touch targets; tested on iOS + Android |
-| IV. Multilingual | ✅ PASS | EN active; content strings keyed by language; IT/DE placeholders in selector |
+| IV. Multilingual | ✅ PASS | EN, IT, and DE all active and fully translated |
 | V. Version-Based Updates | ✅ PASS | File rebuilt on each content change; version visible in document |
 
 **Post-design re-check**: ✅ All principles maintained through Phase 1 design.
@@ -65,7 +66,18 @@ index.html                # Final deliverable (hand-editable or build-generated)
 build.sh                  # Optional: re-encodes images and assembles index.html
 ```
 
-**Structure Decision**: Single-project, single-file output. `src/content/en.js` holds
-all user-visible strings so content authors never touch HTML structure. `build.sh`
-re-encodes the background image to base64 and injects it into `index.html`. For
-updates without a build step, base64 strings can be replaced directly in the HTML.
+**Structure Decision**: Single-project, single-file output. All content strings are
+embedded directly in `index.html` for EN, IT, and DE. `build.sh` re-encodes the
+background image to base64 and injects it into `index.html`. For updates without a
+build step, base64 strings can be replaced directly in the HTML.
+
+## Implementation Notes (Actual vs Planned)
+
+- **Languages**: All three languages (EN/IT/DE) were implemented immediately — not
+  staged as planned.
+- **"Enter Guide" button**: Added with `onclick="navigate('home')"` directly on the
+  button element. Event delegation was insufficient in the WhatsApp WebView.
+- **`initApp()` init timing**: Called immediately at script parse time (not waiting
+  for `DOMContentLoaded`) to fix WhatsApp WebView timing issues. Guard added with
+  `dataset.init` to prevent double-init.
+- **Deployed**: https://welcome2verbania.netlify.app | GitHub: https://github.com/mmelli70/sanrocco

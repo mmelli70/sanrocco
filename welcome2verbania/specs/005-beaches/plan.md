@@ -1,6 +1,7 @@
 # Implementation Plan: Beaches Section
 
 **Branch**: `005-beaches` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -56,3 +57,8 @@ Teatro Maggiore, Spiaggia di Suna, Tre Ponti, Canneto, Quartina e Lido (Mergozzo
 - Cannero Riviera shows ★ badge ✅
 - Maps links open correctly ✅
 - Long descriptions (up to ~1000 chars) don't overflow ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **Multilingual**: Each beach entry has `it` and `de` description fields for Italian
+  and German translations.

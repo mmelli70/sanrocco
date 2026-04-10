@@ -1,6 +1,7 @@
 # Implementation Plan: Adrenaline Attractions Section
 
 **Branch**: `011-adrenaline` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -53,3 +54,9 @@ Lake Maggiore Zipline, Acquadventure Park, Alpyland Mottarone
 - All 3 cards render at 360 dp ✅
 - infoUrl entries show "More info" button ✅
 - Maps links open ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **No mapsUrl field**: Removed — only `infoUrl` is used for external links.
+- **Multilingual**: Each entry has `it` and `de` description fields for Italian and German
+  translations.

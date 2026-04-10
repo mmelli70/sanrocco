@@ -1,6 +1,7 @@
 # Implementation Plan: Boat Rental Section
 
 **Branch**: `012-boat-rental` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -79,3 +80,8 @@ Plus: General Tips sub-section (Fuel Costs, Water Sports, Booking Advice)
 - "Not tested" badge on Marina di Pallanza and Rent Boat Cannobio ✅
 - Phone/WhatsApp links open on device ✅
 - General Tips section visible after operators ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **Multilingual**: Each operator entry has `it` and `de` fields for description and review
+  translations. Italian and German translations fully implemented.

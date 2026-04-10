@@ -2,7 +2,7 @@
 
 **Feature Branch**: `008-house-rules`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: Owner-provided content covering check-in/check-out times, smoking policy,
 city tax, WiFi credentials, dishwasher caution, and air-conditioning maintenance.
 

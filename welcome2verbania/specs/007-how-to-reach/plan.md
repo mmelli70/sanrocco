@@ -1,6 +1,7 @@
 # Implementation Plan: How to Reach Us
 
 **Branch**: `007-how-to-reach` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -73,3 +74,10 @@ Free passage: **08:00–12:30** and **14:30–20:00**
 - Extend `build.sh` to inject ZTL sign and 3 door photos
 - Consider optimising ztl-sign.png (WebP or resize) to reduce file size
 - Verify total HTML file size stays manageable after all base64 injections
+
+## Implementation Notes (Actual vs Planned)
+
+- **ZTL sign**: `ztl-sign.png` embedded as base64 (PNG).
+- **Door photos**: `door1.jpg`, `door2.jpg`, `door3.jpg` all embedded as base64 JPEG.
+- **Parking**: 2 parking entries implemented as planned.
+- **All text in strings.en/it/de**: All sub-sections fully translated to Italian and German.

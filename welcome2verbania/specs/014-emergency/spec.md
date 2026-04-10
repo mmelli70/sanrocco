@@ -2,7 +2,7 @@
 
 **Feature Branch**: `014-emergency`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: Emergency and useful local numbers — 112, ambulance, police, nearest
 hospital, pharmacy, and any other safety-critical contacts for the Verbania area.
 

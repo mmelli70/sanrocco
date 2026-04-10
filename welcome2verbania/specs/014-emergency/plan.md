@@ -1,6 +1,7 @@
 # Implementation Plan: Emergency Section
 
 **Branch**: `014-emergency` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -63,3 +64,10 @@ index.html   ← add #emergency screen + CONTENT.sections.emergency data
 - All 7 numbers open dialler correctly ✅
 - Hospital and pharmacy Maps links open Google Maps ✅
 - Airplane mode: all cards readable, no broken elements ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **7 entries**: 112, 118, 113, 115, Ospedale Castelli DEA, Farmacia Nava, Farmacia San Giorgio.
+- **Fully multilingual**: Each entry has `name_it`, `name_de`, `it`, `de` fields for complete
+  Italian and German translations — critical for safety information.
+- **Pharmacies**: Full address, phone, and opening hours included for each pharmacy.

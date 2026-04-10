@@ -8,7 +8,7 @@
 
 ## Phase 1: Data
 
-- [ ] T005-01 Add `CONTENT.sections.beaches` array (6 entries) to `index.html`:
+- [x] T005-01 Add `CONTENT.sections.beaches` array (6 entries) to `index.html`:
   ```js
   CONTENT.sections.beaches = [
     { name: "Teatro Maggiore", description: "Most convenient beach — under 10 minutes walk from the house. Sandy and pebble beach with large grassy area at the Il Maggiore Events Centre. Free access with sun lounger/umbrella rentals and a bar.", mapsUrl: "https://maps.app.goo.gl/5iFGesixXWEY6XqM9" },
@@ -19,7 +19,7 @@
     { name: "Cannero Riviera", description: "15 minutes from the Swiss border. Wide, well-organised Blue Flag certified beach in a naturally protected bay. Crystal-clear waters. Floating water platform anchored offshore in summer — ideal for diving and jumping.", mapsUrl: "https://maps.app.goo.gl/pcbsKW1iPUyjayn29", favourite: true }
   ]
   ```
-- [ ] T005-02 Add string keys to `CONTENT.strings.en`: `beaches_title`, `beaches_openMaps`, `beaches_favourite`
+- [x] T005-02 Add string keys to `CONTENT.strings.en`: `beaches_title`, `beaches_openMaps`, `beaches_favourite`
 
 **Checkpoint**: 6 entries defined; Cannero Riviera marked `favourite: true`.
 
@@ -27,8 +27,8 @@
 
 ## Phase 2: Section Markup & Render
 
-- [ ] T005-03 Add `<div class="screen" id="beaches" hidden>` to `index.html`; prepend `createSectionHeader('beaches_title')`
-- [ ] T005-04 Write `renderBeaches()`: loop over `CONTENT.sections.beaches[]`, for each entry build a `.card`:
+- [x] T005-03 Add `<div class="screen" id="beaches" hidden>` to `index.html`; prepend `createSectionHeader('beaches_title')`
+- [x] T005-04 Write `renderBeaches()`: loop over `CONTENT.sections.beaches[]`, for each entry build a `.card`:
   - Card header row: name + (if `favourite`) `renderFavouriteBadge()` from spec 004
   - Description paragraph
   - Maps button
@@ -40,10 +40,10 @@
 
 ## Phase 3: Validation
 
-- [ ] T005-05 All 6 cards render at 360 dp; long descriptions wrap cleanly ✅
-- [ ] T005-06 Cannero Riviera shows ★ favourite badge ✅
-- [ ] T005-07 All Maps links open on device ✅
-- [ ] T005-08 Back button returns to home ✅
+- [x] T005-05 All 6 cards render at 360 dp; long descriptions wrap cleanly ✅
+- [x] T005-06 Cannero Riviera shows ★ favourite badge ✅
+- [x] T005-07 All Maps links open on device ✅
+- [x] T005-08 Back button returns to home ✅
 
 ---
 
@@ -53,3 +53,9 @@
 - T005-03 → T005-04
 - Phase 3 depends on Phase 2
 - Reuses `renderFavouriteBadge()` from T004-05 — must be done first
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T005-NEW Add Italian and German description fields (`it`, `de`) to each beach entry

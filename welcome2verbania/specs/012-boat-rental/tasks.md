@@ -8,7 +8,7 @@
 
 ## Phase 1: Data
 
-- [ ] T012-01 Add `CONTENT.sections.boatRental` array (6 operators) to `index.html`:
+- [x] T012-01 Add `CONTENT.sections.boatRental` array (6 operators) to `index.html`:
   ```js
   CONTENT.sections.boatRental = [
     {
@@ -87,7 +87,7 @@
     }
   ]
   ```
-- [ ] T012-02 Add string keys to `CONTENT.strings.en`: `boat_title`, `boat_attribution`, `boat_notTested`, `boat_fleet`, `boat_notes`, `boat_review`, `boat_website`, `boat_tipsTitle`, `boat_tipsFuel`, `boat_tipsWater`, `boat_tipsBooking`
+- [x] T012-02 Add string keys to `CONTENT.strings.en`: `boat_title`, `boat_attribution`, `boat_notTested`, `boat_fleet`, `boat_notes`, `boat_review`, `boat_website`, `boat_tipsTitle`, `boat_tipsFuel`, `boat_tipsWater`, `boat_tipsBooking`
   - `boat_attribution`: "Written by a guest — thank you, Philipp!"
   - `boat_tipsTitle`: "General Tips for Lake Maggiore Boat Rentals"
   - `boat_tipsFuel`: full fuel costs text from spec seed
@@ -100,8 +100,8 @@
 
 ## Phase 2: Section Markup & Render
 
-- [ ] T012-03 Add `<div class="screen" id="boat-rental" hidden>` to `index.html`; prepend `createSectionHeader('boat_title')`
-- [ ] T012-04 Write `renderBoatRental()`:
+- [x] T012-03 Add `<div class="screen" id="boat-rental" hidden>` to `index.html`; prepend `createSectionHeader('boat_title')`
+- [x] T012-04 Write `renderBoatRental()`:
   - Attribution banner: `.info-box` with `boat_attribution` text
   - Loop over `CONTENT.sections.boatRental[]`, for each operator render a `.card`:
     - Header: operator name + (if `notTested`) `<span class="badge badge-not-tested">Not personally tested</span>`
@@ -119,14 +119,14 @@
 
 ## Phase 3: Validation
 
-- [ ] T012-05 All 6 operator cards render at 360 dp without overflow ✅
-- [ ] T012-06 "Not tested" badge appears on Marina di Pallanza and Rent Boat Cannobio ✅
-- [ ] T012-07 Phone/mobile tap-to-call links work on device ✅
-- [ ] T012-08 WhatsApp link for Rent Boat Lago Maggiore opens WhatsApp ✅
-- [ ] T012-09 Website links open in browser ✅
-- [ ] T012-10 General Tips section visible after all 6 operators ✅
-- [ ] T012-11 Attribution banner visible at top of section ✅
-- [ ] T012-12 Back button returns to home ✅
+- [x] T012-05 All 6 operator cards render at 360 dp without overflow ✅
+- [x] T012-06 "Not tested" badge appears on Marina di Pallanza and Rent Boat Cannobio ✅
+- [x] T012-07 Phone/mobile tap-to-call links work on device ✅
+- [x] T012-08 WhatsApp link for Rent Boat Lago Maggiore opens WhatsApp ✅
+- [x] T012-09 Website links open in browser ✅
+- [x] T012-10 General Tips section visible after all 6 operators ✅
+- [x] T012-11 Attribution banner visible at top of section ✅
+- [x] T012-12 Back button returns to home ✅
 
 ---
 
@@ -135,3 +135,9 @@
 - T012-01 and T012-02 can run in parallel
 - T012-03 → T012-04
 - Phase 3 depends on Phase 2
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T012-NEW Add Italian and German fields (`it`, `de`) for descriptions and reviews to each boat rental operator entry

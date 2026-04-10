@@ -1,6 +1,7 @@
 # Implementation Plan: Restaurants Section
 
 **Branch**: `004-restaurants` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -60,3 +61,11 @@ Estremadura, ★ Donna Francesca, ★ Cantina Leonardo, L'Imbarcadero (Isola Pes
 - All 12 cards render correctly at 360 dp ✅
 - 4 starred entries show favourite badge ✅
 - Long descriptions don't overflow cards ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **No rating/price fields**: These were removed — only `name`, `description`, `mapsUrl`,
+  and `favourite` fields exist in the data model.
+- **12 restaurants**: La Terrazza was added as the 12th entry during build.
+- **Multilingual**: Each restaurant entry has `it` and `de` description fields for
+  Italian and German translations.

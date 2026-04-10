@@ -1,6 +1,7 @@
 # Implementation Plan: Things to Visit Section
 
 **Branch**: `010-things-to-visit` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -58,3 +59,9 @@ Valle Verzasca
 - `infoUrl` entries show second action button ✅
 - Long descriptions render without overflow ✅
 - Maps links open ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **No mapsUrl field**: Removed — only `infoUrl` is used for external links where applicable.
+- **Multilingual**: Each entry has `it` and `de` description fields for Italian and German
+  translations.

@@ -2,7 +2,7 @@
 
 **Feature Branch**: `011-adrenaline`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: "Adrenaline section is like Things to Visit." Seed content provided by
 owner (3 entries: Lake Maggiore Zipline, Aquadventure Park, Alpyland Mottarone).
 
@@ -78,18 +78,18 @@ description, and `infoUrl`. Open the file — the card appears with the info lin
   - `name` (string, required)
   - `description` (string, required — may be long/multi-paragraph)
   - `favourite` (boolean, required — `true` shows the recommended star)
-  - `mapsUrl` (string URL, optional)
   - `infoUrl` (string URL, optional — official website or booking page)
+  - `it` (string, optional — Italian description)
+  - `de` (string, optional — German description)
+  There is no `mapsUrl` field — only `infoUrl` is used for external links.
 - **FR-003**: Each card MUST display the entry `name` as a title.
 - **FR-004**: Each card MUST display the full `description` with no truncation.
   Multi-line text and line breaks MUST be preserved.
 - **FR-005**: If `favourite` is `true`, the card MUST display a star badge (★).
   If `false`, no star appears.
-- **FR-006**: If `mapsUrl` is present, the card MUST show an "Open in Maps" button
-  opening the URL in a new tab / maps app. If absent, the button MUST NOT appear.
-- **FR-007**: If `infoUrl` is present, the card MUST show a "Website" (or
+- **FR-006**: If `infoUrl` is present, the card MUST show a "Website" (or
   equivalent) button opening the URL in a new tab (`target="_blank" rel="noopener"`).
-  If absent, the button MUST NOT appear.
+  If absent, the button MUST NOT appear. There is no "Open in Maps" button.
 - **FR-008**: The list MUST be defined as a data array in `CONTENT`
   (key: `CONTENT.sections.adrenaline`). Adding or removing an entry MUST require
   editing only that array.
@@ -105,8 +105,8 @@ description, and `infoUrl`. Open the file — the card appears with the info lin
 
 ### Key Entities
 
-- **Attraction Entry**: `{ name, description, favourite: bool, mapsUrl?, infoUrl? }`
-  stored in `CONTENT.sections.adrenaline[]`.
+- **Attraction Entry**: `{ name, description, favourite: bool, infoUrl?, it?, de? }`
+  stored in `CONTENT.sections.adrenaline[]`. No `mapsUrl` field.
 - **Recommended Badge**: The ★ indicator shown when `favourite: true`.
 - **Website Link**: Optional action button for the official site / booking page
   (`infoUrl`).

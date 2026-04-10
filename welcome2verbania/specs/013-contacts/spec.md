@@ -2,7 +2,7 @@
 
 **Feature Branch**: `013-contacts`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: Owner contact information — the first section guests see, providing direct
 ways to reach the owner before, during, and after the stay.
 

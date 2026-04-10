@@ -8,7 +8,7 @@
 
 ## Phase 1: Data
 
-- [ ] T006-01 Add `CONTENT.sections.supermarkets` array (4 entries) to `index.html`:
+- [x] T006-01 Add `CONTENT.sections.supermarkets` array (4 entries) to `index.html`:
   ```js
   CONTENT.sections.supermarkets = [
     { name: "Esselunga", description: "Best quality for fresh produce and vegetables. Meat and fish are OK. Register for the Fidaty loyalty card at the entrance desk — many discounts are only available with it.", mapsUrl: "https://g.co/kgs/nFqzzXW" },
@@ -17,7 +17,7 @@
     { name: "Cusio Formaggi", description: "Best place to buy cheese — only on Saturday mornings at the street market in Intra. Try the Erborinato stagionato sotto vinacce (blue cheese under grape pomace), Toma del Mottarone, Monte 27, Castelmagno, Gorgonzola, Burrata, and Guanciale. Owners are very kind and will let you taste many cheeses.", mapsUrl: "https://maps.app.goo.gl/qfxzwD8Xhu4danhe9", favourite: true, note: "Only on Saturday mornings" }
   ]
   ```
-- [ ] T006-02 Add string keys to `CONTENT.strings.en`: `supermarkets_title`, `supermarkets_openMaps`, `supermarkets_favourite`
+- [x] T006-02 Add string keys to `CONTENT.strings.en`: `supermarkets_title`, `supermarkets_openMaps`, `supermarkets_favourite`
 
 **Checkpoint**: 4 entries defined; Colombo and Cusio Formaggi marked `favourite: true`.
 
@@ -25,8 +25,8 @@
 
 ## Phase 2: Section Markup & Render
 
-- [ ] T006-03 Add `<div class="screen" id="supermarkets" hidden>` to `index.html`; prepend `createSectionHeader('supermarkets_title')`
-- [ ] T006-04 Write `renderSupermarkets()`: loop over `CONTENT.sections.supermarkets[]`, build `.card` for each:
+- [x] T006-03 Add `<div class="screen" id="supermarkets" hidden>` to `index.html`; prepend `createSectionHeader('supermarkets_title')`
+- [x] T006-04 Write `renderSupermarkets()`: loop over `CONTENT.sections.supermarkets[]`, build `.card` for each:
   - Header row: name + (if `favourite`) badge
   - If `entry.note` → `<span class="badge" style="background:#FFF0CC; color:#7A5C00">{note}</span>` (Saturday-only tag)
   - Description paragraph
@@ -39,11 +39,11 @@
 
 ## Phase 3: Validation
 
-- [ ] T006-05 All 4 cards render at 360 dp ✅
-- [ ] T006-06 Colombo and Cusio Formaggi show ★ badge ✅
-- [ ] T006-07 Cusio Formaggi Saturday-only note is clearly visible ✅
-- [ ] T006-08 Maps links open on device ✅
-- [ ] T006-09 Back button returns to home ✅
+- [x] T006-05 All 4 cards render at 360 dp ✅
+- [x] T006-06 Colombo and Cusio Formaggi show ★ badge ✅
+- [x] T006-07 Cusio Formaggi Saturday-only note is clearly visible ✅
+- [x] T006-08 Maps links open on device ✅
+- [x] T006-09 Back button returns to home ✅
 
 ---
 
@@ -52,3 +52,9 @@
 - T006-01 and T006-02 can run in parallel
 - T006-03 → T006-04
 - Phase 3 depends on Phase 2
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T006-NEW Add Italian and German description fields (`it`, `de`) to each supermarket entry

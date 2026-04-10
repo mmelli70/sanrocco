@@ -17,8 +17,8 @@
 
 **Purpose**: Create all files and folders before any implementation begins.
 
-- [ ] T001 Create project file structure: `index.html` (empty skeleton), `src/content/en.js` (empty), `assets/` directory with a `.gitkeep` placeholder, `build.sh` (empty)
-- [ ] T002 Populate `src/content/en.js` with English content strings per `specs/001-welcome-page/contracts/content-schema.md` — include the full `CONTENT` object with `languages`, `defaultLanguage`, and `strings.en`
+- [x] T001 Create project file structure: `index.html` (empty skeleton), `src/content/en.js` (empty), `assets/` directory with a `.gitkeep` placeholder, `build.sh` (empty)
+- [x] T002 Populate `src/content/en.js` with English content strings per `specs/001-welcome-page/contracts/content-schema.md` — include the full `CONTENT` object with `languages`, `defaultLanguage`, and `strings.en`
 
 **Checkpoint**: All files exist; `src/content/en.js` exports a valid `CONTENT` object.
 
@@ -30,10 +30,10 @@
 
 **⚠️ CRITICAL**: No user story work can begin until this phase is complete.
 
-- [ ] T003 Write the HTML skeleton in `index.html`: `<!DOCTYPE html>`, `<html lang="en">`, `<head>` with `<meta charset>`, `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`, inline `<style>` block (empty), inline `<script>` block (empty)
-- [ ] T004 [P] Add CSS foundation to `index.html` `<style>` block: `* { box-sizing: border-box; margin: 0; padding: 0; }`, `html, body { height: 100%; }`, `.screen { min-height: 100dvh; min-height: 100vh; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }`
-- [ ] T005 Embed the `CONTENT` object in `index.html` `<script>` block by inlining the content of `src/content/en.js`, then implement `setLanguage(code)` function that: (1) updates all `[data-i18n]` DOM elements with the matching string, (2) sets `document.documentElement.lang`, (3) marks the active flag button
-- [ ] T006 Add language auto-detection on `DOMContentLoaded` in `index.html` `<script>` block: read `navigator.language`, find a matching `code` in `CONTENT.languages` where `active === true`, fall back to `CONTENT.defaultLanguage`, call `setLanguage(detectedCode)`
+- [x] T003 Write the HTML skeleton in `index.html`: `<!DOCTYPE html>`, `<html lang="en">`, `<head>` with `<meta charset>`, `<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">`, inline `<style>` block (empty), inline `<script>` block (empty)
+- [x] T004 [P] Add CSS foundation to `index.html` `<style>` block: `* { box-sizing: border-box; margin: 0; padding: 0; }`, `html, body { height: 100%; }`, `.screen { min-height: 100dvh; min-height: 100vh; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }`
+- [x] T005 Embed the `CONTENT` object in `index.html` `<script>` block by inlining the content of `src/content/en.js`, then implement `setLanguage(code)` function that: (1) updates all `[data-i18n]` DOM elements with the matching string, (2) sets `document.documentElement.lang`, (3) marks the active flag button
+- [x] T006 Add language auto-detection on `DOMContentLoaded` in `index.html` `<script>` block: read `navigator.language`, find a matching `code` in `CONTENT.languages` where `active === true`, fall back to `CONTENT.defaultLanguage`, call `setLanguage(detectedCode)`
 
 **Checkpoint**: Opening `index.html` in a browser shows a blank page with no console errors and language detection runs silently.
 
@@ -45,11 +45,11 @@
 
 **Independent Test**: Open `index.html` from the file system with airplane mode on. The background image (or fallback colour), "San Rocco", "Bed & Breakfast Guest Guide", and "Verbania - Italy" must all be visible without scrolling on a 360 × 640 dp screen.
 
-- [ ] T007 [US1] Add background layer to `index.html`: a `<div class="bg">` inside `.screen` styled with `background-image: url('data:image/jpeg;base64,PLACEHOLDER')`, `background-size: cover`, `background-position: center`, `position: absolute; inset: 0`, and fallback `background-color: #2c3e50`
-- [ ] T008 [P] [US1] Add the dark overlay to `index.html`: a `<div class="overlay">` inside `.screen` with `position: absolute; inset: 0; background: rgba(0,0,0,0.35)` layered above `.bg`
-- [ ] T009 [P] [US1] Add the text stack HTML to `index.html`: a `<div class="content">` containing `<h1 data-i18n="propertyName">`, `<p data-i18n="subtitle">`, `<p data-i18n="location">`, and an empty `<div class="lang-selector">` placeholder; positioned above overlay via `position: relative; z-index: 1`
-- [ ] T010 [US1] Style the text stack in `index.html` `<style>` block: `.content` centered vertically and horizontally (flexbox column), white `color: #fff`, `h1` large (clamp 2rem–3rem), subtitle and location smaller (1rem–1.2rem), `text-shadow: 0 1px 4px rgba(0,0,0,0.6)` on all text
-- [ ] T011 [US1] Verify layout in at minimum two real environments: open `index.html` from the filesystem in iOS Safari (or BrowserStack) and Android Chrome; confirm all three text lines visible without scrolling at 360 dp width
+- [x] T007 [US1] Add background layer to `index.html`: a `<div class="bg">` inside `.screen` styled with `background-image: url('data:image/jpeg;base64,PLACEHOLDER')`, `background-size: cover`, `background-position: center`, `position: absolute; inset: 0`, and fallback `background-color: #2c3e50`
+- [x] T008 [P] [US1] Add the dark overlay to `index.html`: a `<div class="overlay">` inside `.screen` with `position: absolute; inset: 0; background: rgba(0,0,0,0.35)` layered above `.bg`
+- [x] T009 [P] [US1] Add the text stack HTML to `index.html`: a `<div class="content">` containing `<h1 data-i18n="propertyName">`, `<p data-i18n="subtitle">`, `<p data-i18n="location">`, and an empty `<div class="lang-selector">` placeholder; positioned above overlay via `position: relative; z-index: 1`
+- [x] T010 [US1] Style the text stack in `index.html` `<style>` block: `.content` centered vertically and horizontally (flexbox column), white `color: #fff`, `h1` large (clamp 2rem–3rem), subtitle and location smaller (1rem–1.2rem), `text-shadow: 0 1px 4px rgba(0,0,0,0.6)` on all text
+- [x] T011 [US1] Verify layout in at minimum two real environments: open `index.html` from the filesystem in iOS Safari (or BrowserStack) and Android Chrome; confirm all three text lines visible without scrolling at 360 dp width
 
 **Checkpoint**: User Story 1 is fully functional. Guest sees welcome screen with no internet.
 
@@ -61,10 +61,10 @@
 
 **Independent Test**: Tap 🇬🇧 flag — guide remains in English (no reload). IT and DE flags are visible, appear dimmed, and do not respond to taps.
 
-- [ ] T012 [US2] Populate `.lang-selector` in `index.html` `<script>` block via `renderLanguageSelector()`: for each entry in `CONTENT.languages`, create a `<button>` with `data-lang-code`, emoji text, `aria-label` from `label` field; set `disabled` and `opacity: 0.4` when `active === false`; call this function inside `DOMContentLoaded` before `setLanguage`
-- [ ] T013 [P] [US2] Style `.lang-selector` and its buttons in `index.html` `<style>` block: flex row, `gap: 1rem`, flag buttons `font-size: 2rem`, `background: none; border: none; cursor: pointer; padding: 0.25rem`, `min-width: 44px; min-height: 44px` (touch target), active state shown with `border-bottom: 2px solid #fff`
-- [ ] T014 [US2] Wire flag tap in `index.html` `<script>` block: add click listener on `.lang-selector` (event delegation); on tap of an enabled button, call `setLanguage(button.dataset.langCode)`; `setLanguage` must also update the active border on the tapped flag and remove it from others
-- [ ] T015 [US2] Verify language selector in iOS Safari and Android Chrome: 🇬🇧 tappable and shows active border; 🇮🇹 and 🇩🇪 dimmed and non-interactive; no page reload on flag tap
+- [x] T012 [US2] Populate `.lang-selector` in `index.html` `<script>` block via `renderLanguageSelector()`: for each entry in `CONTENT.languages`, create a `<button>` with `data-lang-code`, emoji text, `aria-label` from `label` field; set `disabled` and `opacity: 0.4` when `active === false`; call this function inside `DOMContentLoaded` before `setLanguage`
+- [x] T013 [P] [US2] Style `.lang-selector` and its buttons in `index.html` `<style>` block: flex row, `gap: 1rem`, flag buttons `font-size: 2rem`, `background: none; border: none; cursor: pointer; padding: 0.25rem`, `min-width: 44px; min-height: 44px` (touch target), active state shown with `border-bottom: 2px solid #fff`
+- [x] T014 [US2] Wire flag tap in `index.html` `<script>` block: add click listener on `.lang-selector` (event delegation); on tap of an enabled button, call `setLanguage(button.dataset.langCode)`; `setLanguage` must also update the active border on the tapped flag and remove it from others
+- [x] T015 [US2] Verify language selector in iOS Safari and Android Chrome: 🇬🇧 tappable and shows active border; 🇮🇹 and 🇩🇪 dimmed and non-interactive; no page reload on flag tap
 
 **Checkpoint**: User Stories 1 and 2 both work independently.
 
@@ -74,10 +74,10 @@
 
 **Purpose**: Accessibility, versioning, image tooling, and final distribution test.
 
-- [ ] T016 [P] Add `const VERSION = "1.0.0"` constant to `index.html` `<script>` block and display it in a small footer `<span>` inside `.content` (e.g., `v1.0.0` in `font-size: 0.7rem; opacity: 0.6`)
-- [ ] T017 [P] Audit accessibility in `index.html`: add `aria-label="Select language"` to `.lang-selector`, confirm `<h1>` is the only H1, verify colour contrast of white text over `rgba(0,0,0,0.35)` overlay meets WCAG AA (≥ 4.5:1)
-- [ ] T018 Write `build.sh` at repo root: accept optional argument `IMAGE=assets/home.jpeg`; base64-encode the image with `base64 -i "$IMAGE" | tr -d '\n'`; replace the `PLACEHOLDER` token inside `index.html`'s `.bg` background-image URL with the encoded string; print success message and new file size
-- [ ] T019 Run the full test checklist from `specs/001-welcome-page/quickstart.md`: airplane mode open, iOS Safari, Android Chrome, WhatsApp in-app browser, Gmail in-app browser — confirm all checklist items pass before marking feature done
+- [x] T016 [P] Add `const VERSION = "1.0.0"` constant to `index.html` `<script>` block and display it in a small footer `<span>` inside `.content` (e.g., `v1.0.0` in `font-size: 0.7rem; opacity: 0.6`)
+- [x] T017 [P] Audit accessibility in `index.html`: add `aria-label="Select language"` to `.lang-selector`, confirm `<h1>` is the only H1, verify colour contrast of white text over `rgba(0,0,0,0.35)` overlay meets WCAG AA (≥ 4.5:1)
+- [x] T018 Write `build.sh` at repo root: accept optional argument `IMAGE=assets/home.jpeg`; base64-encode the image with `base64 -i "$IMAGE" | tr -d '\n'`; replace the `PLACEHOLDER` token inside `index.html`'s `.bg` background-image URL with the encoded string; print success message and new file size
+- [x] T019 Run the full test checklist from `specs/001-welcome-page/quickstart.md`: airplane mode open, iOS Safari, Android Chrome, WhatsApp in-app browser, Gmail in-app browser — confirm all checklist items pass before marking feature done
 
 **Checkpoint**: `index.html` is distributable, accessible, versioned, and passes all cross-platform tests.
 
@@ -140,3 +140,12 @@ Sequential:
 ### Single-developer order
 
 T001 → T002 → T003 → T004 → T005 → T006 → T007 → T008 → T009 → T010 → T011 → T012 → T013 → T014 → T015 → T016 → T017 → T018 → T019
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T001-NEW Add Italian (IT) language support — full translation of all strings
+- [x] T001-NEW2 Add German (DE) language support — full translation of all strings
+- [x] T001-NEW3 Add "Enter Guide" button with `onclick="navigate('home')"` directly on element (WhatsApp WebView fix — event delegation was insufficient)
+- [x] T001-NEW4 Call `initApp()` immediately at script parse time (not inside DOMContentLoaded) to fix WhatsApp WebView timing issues; added `dataset.init` guard against double-init

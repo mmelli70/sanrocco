@@ -1,6 +1,7 @@
 # Implementation Plan: Design System
 
 **Branch**: `002-design-system` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 **Input**: Feature specification from `specs/002-design-system/spec.md`
 
 ## Summary
@@ -20,7 +21,7 @@ in `index.html`. Google Fonts is replaced by WOFF2 files embedded as base64 data
 **Project Type**: Single-file static HTML document — CSS-only design system
 **Performance Goals**: Total embedded font payload ≤ 150 KB (subset Latin); full render ≤ 2 s offline
 **Constraints**: Zero external URLs in `<style>` or `<link>`; all `@font-face src` must be `data:` URIs
-**Scale/Scope**: 8 font variants (5 Cormorant Garamond + 3 Jost), 8 colour tokens, ~12 component classes
+**Scale/Scope**: 5 embedded font variants (Cormorant Garamond + Jost WOFF2), luxury hotel colour palette (`#FAFAF8` bg, `#FFFFFF` cards, `#1A1A1A` text, `#B8965A` gold, `#E8E4DE` borders), ~12 component classes; SVG line art icons (NOT emoji)
 
 ## Constitution Check
 
@@ -75,6 +76,19 @@ build.sh          # Extended with --fonts flag: base64-encodes assets/fonts/* �
 index.html        # <style> block holds all tokens + component CSS + @font-face rules
 ```
 
-**Structure Decision**: Single-project. Font WOFF2 files are kept in `assets/fonts/` as
-source files. `build.sh` base64-encodes them and injects `@font-face` rules into `index.html`.
-The CSS design system (tokens + components) is hand-edited directly in `index.html`.
+**Structure Decision**: Single-project. Font WOFF2 files are base64-encoded and injected
+into `@font-face` rules in `index.html` via `build.sh`. All CSS lives in a single
+`<style>` block in `index.html`.
+
+## Implementation Notes (Actual vs Planned)
+
+- **Colour palette**: Implemented as luxury hotel aesthetic, NOT the demo.html palette.
+  Actual tokens: `#FAFAF8` (background), `#FFFFFF` (cards), `#1A1A1A` (text),
+  `#B8965A` (gold accent), `#E8E4DE` (borders).
+- **Icons**: SVG line art (24px, stroke-based) used throughout — NOT emoji as planned.
+- **Cards**: Thin bottom border separator, no rounded corners, no box-shadow.
+- **Buttons**: Text links with → arrow; thin outlined buttons for actions.
+- **Section headers**: Sticky, Cormorant Garamond title, gold ← back button.
+- **CSS fix added**: `[hidden] { display: none !important; }` required because
+  `display: flex` on `.screen` overrides the HTML `hidden` attribute specificity.
+- **Fonts embedded**: 5 WOFF2 variants (Cormorant Garamond + Jost) as base64 data URIs.

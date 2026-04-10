@@ -8,7 +8,7 @@
 
 ## Phase 1: Data & Strings
 
-- [ ] T008-01 Add all 8 sub-section string keys to `CONTENT.strings.en` (+ `it`/`de` placeholders):
+- [x] T008-01 Add all 8 sub-section string keys to `CONTENT.strings.en` (+ `it`/`de` placeholders):
   - `rules_title`
   - `rules_checkin_title`, `rules_checkin_body` — Check-in 15:00–20:00; check-out by 10:00; late check-out by arrangement
   - `rules_smoking_title`, `rules_smoking_body` — No smoking anywhere inside; smoking permitted on the terrace
@@ -25,8 +25,8 @@
 
 ## Phase 2: Section Markup
 
-- [ ] T008-02 Add `<div class="screen" id="house-rules" hidden>` to `index.html`; prepend `createSectionHeader('rules_title')`
-- [ ] T008-03 Write `renderHouseRules()`: render 8 sub-sections in order. Each sub-section: `<h3 data-i18n="{title_key}">` + appropriate component:
+- [x] T008-02 Add `<div class="screen" id="house-rules" hidden>` to `index.html`; prepend `createSectionHeader('rules_title')`
+- [x] T008-03 Write `renderHouseRules()`: render 8 sub-sections in order. Each sub-section: `<h3 data-i18n="{title_key}">` + appropriate component:
   - Check-In/Out → `.info-box`
   - Smoking → `.info-box`
   - City Tax → `.info-box`
@@ -35,7 +35,7 @@
   - Jacuzzi → `.warning-box` (caution)
   - Air Conditioning → `.info-box`
   - Waste → `.info-box` (placeholder text)
-- [ ] T008-04 Call `renderHouseRules()` on `DOMContentLoaded`
+- [x] T008-04 Call `renderHouseRules()` on `DOMContentLoaded`
 
 **Checkpoint**: 8 sub-sections render with correct component styles (warning boxes visually distinct).
 
@@ -43,10 +43,10 @@
 
 ## Phase 3: Validation
 
-- [ ] T008-05 All 8 sub-sections readable at 360 dp without horizontal overflow ✅
-- [ ] T008-06 WiFi SSID `melli-fibra` and password `04930493` readable at a glance ✅
-- [ ] T008-07 Kitchen and Jacuzzi warning boxes use amber/gold `.warning-box` style (not blue `.info-box`) ✅
-- [ ] T008-08 Back button returns to home ✅
+- [x] T008-05 All 8 sub-sections readable at 360 dp without horizontal overflow ✅
+- [x] T008-06 WiFi SSID `melli-fibra` and password `04930493` readable at a glance ✅
+- [x] T008-07 Kitchen and Jacuzzi warning boxes use amber/gold `.warning-box` style (not blue `.info-box`) ✅
+- [x] T008-08 Back button returns to home ✅
 
 ---
 
@@ -55,3 +55,7 @@
 - T008-01 runs first
 - T008-02 → T008-03 → T008-04
 - Phase 3 depends on Phase 2
+
+---
+
+## Additional Tasks (Implemented — no unplanned additions for this spec)

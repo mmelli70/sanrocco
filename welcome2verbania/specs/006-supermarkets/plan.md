@@ -1,6 +1,7 @@
 # Implementation Plan: Supermarkets Section
 
 **Branch**: `006-supermarkets` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -53,3 +54,8 @@ Esselunga, Tigros, Colombo (fruits specialist), Cusio Formaggi (★ Saturday mar
 - All 4 cards render at 360 dp ✅
 - Cusio Formaggi Saturday-only note prominent ✅
 - Maps links open ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **Multilingual**: Each supermarket entry has `it` and `de` description fields for
+  Italian and German translations.

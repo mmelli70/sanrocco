@@ -2,7 +2,7 @@
 
 **Feature Branch**: `002-design-system`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "the style of the page should be elegant and minimal — follow the style of the demo.html file"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -124,15 +124,19 @@ or components overlapping.
 ## Assumptions
 
 - The reference style is `demo.html` in the project root, which uses Cormorant Garamond
-  (serif) and Jost (sans-serif) loaded from Google Fonts. The implementation MUST
-  replicate this aesthetic using the same or equivalent fonts embedded as WOFF2 data URIs.
+  (serif) and Jost (sans-serif) loaded from Google Fonts. The implementation replicates
+  this aesthetic using the same fonts embedded as WOFF2 base64 data URIs (5 variants total).
 - Font subsetting (limiting to the characters needed for Latin + basic punctuation) is
   acceptable to reduce file size — full Unicode coverage is not required.
-- The colour palette tokens are derived directly from `demo.html`:
-  `--cream #F7F3EE`, `--warm-white #FDFAF6`, `--charcoal #2C2C2C`, `--stone #8C8478`,
-  `--gold #B8996A`, `--gold-light #D4B896`, `--border #E2D9CF`, `--accent-bg #F0EAE1`.
-- The design system spec does NOT include motion/animation decisions (splash screen
-  entrance animation) — those belong to the splash/welcome screen feature spec.
-- The `demo.html` file uses Google Fonts which violates the Self-Contained and
-  Offline-First constitution principles. The implementation MUST resolve this conflict
-  by embedding fonts — the visual result is the reference, not the technique.
+- The actual colour palette implemented uses luxury hotel tokens (NOT the demo.html palette):
+  `--color-bg: #FAFAF8`, `--color-surface: #FFFFFF`, `--color-text: #1A1A1A`,
+  `--color-gold: #B8965A`, `--color-border: #E8E4DE`.
+- Cards use a thin bottom border separator (no rounded corners, no box-shadow) for a
+  luxury hotel aesthetic.
+- Buttons use text links with → arrow or thin outlined styles (not filled buttons).
+- Section headers are sticky, with Cormorant Garamond title and a gold ← back button.
+- Icons are SVG line art (24px, stroke-based) — NOT emoji as originally planned.
+- The CSS fix `[hidden] { display: none !important; }` was required because `display: flex`
+  on `.screen` overrides the HTML `hidden` attribute.
+- The design system spec does NOT include motion/animation decisions — those belong
+  to the splash/welcome screen feature spec.

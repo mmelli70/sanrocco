@@ -2,7 +2,7 @@
 
 **Feature Branch**: `010-things-to-visit`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: "Things to Visit — same approach as beaches: name, description, star if
 recommended." Seed content provided by owner (11 entries: Borromean Islands, Villa
 Taranto, Stresa, Sacro Monte di Ghiffa, Baveno, Cannero Riviera, Mergozzo, Orta San
@@ -114,19 +114,19 @@ the star and full description.
   - `name` (string, required)
   - `description` (string, required — may be long/multi-paragraph)
   - `favourite` (boolean, required — `true` shows the recommended star)
-  - `mapsUrl` (string URL, optional)
   - `infoUrl` (string URL, optional — for external schedules, official sites, etc.)
+  - `it` (string, optional — Italian description)
+  - `de` (string, optional — German description)
+  There is no `mapsUrl` field — only `infoUrl` is used for external links.
 - **FR-003**: Each card MUST display the entry `name` as a title.
 - **FR-004**: Each card MUST display the full `description` as body text with no
   truncation. Multi-line text and line breaks MUST be preserved in rendering.
 - **FR-005**: If `favourite` is `true`, the card MUST display a visible star badge
   (★) signalling the owner's recommendation. If `false`, no star appears.
-- **FR-006**: If `mapsUrl` is present and non-empty, the card MUST show an
-  "Open in Maps" button that opens the URL in a new tab / maps app. If absent,
-  the button MUST NOT appear.
-- **FR-007**: If `infoUrl` is present and non-empty, the card MUST show an
+- **FR-006**: If `infoUrl` is present and non-empty, the card MUST show an
   "More Info" (or equivalent) button that opens the URL in a new tab
   (`target="_blank" rel="noopener"`). If absent, the button MUST NOT appear.
+  There is no "Open in Maps" button — `mapsUrl` is not part of this data schema.
 - **FR-008**: The places list MUST be defined as a data array in `CONTENT`
   (key: `CONTENT.sections.thingsToVisit`). Adding or removing an entry MUST require
   editing only that array.
@@ -139,14 +139,15 @@ the star and full description.
   specifically `.card`, `.card-title`, `.card-body`, `.badge`, `.map-btn`, and
   `.ornament-divider` classes. No new component variants are introduced.
 - **FR-012**: The section MUST work fully offline. No assets may depend on a network
-  request. External links (`mapsUrl`, `infoUrl`) are expected to require connectivity
+  request. External links (`infoUrl`) are expected to require connectivity
   — this is acceptable.
 
 ### Key Entities
 
 - **Place Entry**: A record in the things-to-visit data array. Fields: `name`
-  (string), `description` (string), `favourite` (boolean), `mapsUrl` (optional
-  string), `infoUrl` (optional string).
+  (string), `description` (string), `favourite` (boolean), `infoUrl` (optional
+  string), `it` (optional string — Italian description), `de` (optional string —
+  German description). No `mapsUrl` field.
 - **Recommended Badge**: The ★ indicator shown on cards where `favourite: true`.
 - **Info Link**: Optional secondary action button linking to an external URL
   (schedule, official site, etc.).

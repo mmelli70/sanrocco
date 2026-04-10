@@ -8,7 +8,7 @@
 
 ## Phase 1: Data
 
-- [ ] T014-01 In `index.html` `<script>` block, add `CONTENT.sections.emergency` array (7 entries):
+- [x] T014-01 In `index.html` `<script>` block, add `CONTENT.sections.emergency` array (7 entries):
   ```js
   CONTENT.sections.emergency = [
     { name: "112 — Single Emergency Number", number: "112",
@@ -32,7 +32,7 @@
       mapsUrl: "https://maps.app.goo.gl/WDfzTyRQtEQqBtJW6" }
   ]
   ```
-- [ ] T014-02 Add string keys to `CONTENT.strings.en`: `emergency_title`, `emergency_intro`, `emergency_openMaps`
+- [x] T014-02 Add string keys to `CONTENT.strings.en`: `emergency_title`, `emergency_intro`, `emergency_openMaps`
   - `emergency_intro`: full "How 112 works in Italy" text from spec seed content
 
 **Checkpoint**: Array and string keys defined.
@@ -41,15 +41,15 @@
 
 ## Phase 2: Section Markup & Render
 
-- [ ] T014-03 Add `<div class="screen" id="emergency" hidden>` to `index.html`; prepend `createSectionHeader('emergency_title')`
-- [ ] T014-04 Write `renderEmergency()` in JS:
+- [x] T014-03 Add `<div class="screen" id="emergency" hidden>` to `index.html`; prepend `createSectionHeader('emergency_title')`
+- [x] T014-04 Write `renderEmergency()` in JS:
   - Render intro text as `.info-box` above the cards
   - Loop over `CONTENT.sections.emergency[]`
   - If `entry.primary === true` → `<div class="emergency-card emergency-card--primary">`; else `<div class="emergency-card">`
   - Card content: entry name, description (if present), `<a class="emergency-number" href="tel:{number_normalised}">{number}</a>` (strip spaces for href)
   - If `entry.address` → small address line below number
   - If `entry.mapsUrl` → `<a class="btn btn-maps" href="{mapsUrl}" target="_blank">` using `emergency_openMaps` label
-- [ ] T014-05 Call `renderEmergency()` on `DOMContentLoaded`
+- [x] T014-05 Call `renderEmergency()` on `DOMContentLoaded`
 
 **Checkpoint**: 7 cards render; 112 uses primary variant; hospital and pharmacies show Maps button.
 
@@ -57,11 +57,11 @@
 
 ## Phase 3: Validation
 
-- [ ] T014-06 112 is first and visually most prominent on 360 dp ✅
-- [ ] T014-07 Tap all 7 numbers → correct dialler pre-fill on real device ✅
-- [ ] T014-08 Tap Maps links for hospital and pharmacies → Google Maps opens ✅
-- [ ] T014-09 Airplane mode: all 7 cards readable, no broken elements ✅
-- [ ] T014-10 Back button returns to home ✅
+- [x] T014-06 112 is first and visually most prominent on 360 dp ✅
+- [x] T014-07 Tap all 7 numbers → correct dialler pre-fill on real device ✅
+- [x] T014-08 Tap Maps links for hospital and pharmacies → Google Maps opens ✅
+- [x] T014-09 Airplane mode: all 7 cards readable, no broken elements ✅
+- [x] T014-10 Back button returns to home ✅
 
 ---
 
@@ -70,3 +70,9 @@
 - T014-01 and T014-02 can run in parallel
 - T014-03 → T014-04 → T014-05 (markup → render → call)
 - Phase 3 depends on Phase 2
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T014-NEW Add `name_it`, `name_de`, `it`, `de` fields to all 7 emergency entries — fully translated to Italian and German (critical safety information)

@@ -2,7 +2,7 @@
 
 **Feature Branch**: `004-restaurants`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "the section restaurants will show a list of my preferred restaurants. For each restaurant must be shown: name, a link to google maps, a small description"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -77,7 +77,9 @@ styled at the end of the list with no other changes.
   restaurant cards, one per restaurant entry in the data array.
 - **FR-002**: Each restaurant entry in the data array MUST support these fields:
   `name` (string), `description` (string), `mapsUrl` (string URL, optional),
-  `favourite` (boolean, optional — `true` shows an owner's pick badge, default `false`).
+  `favourite` (boolean, optional — `true` shows an owner's pick badge, default `false`),
+  `it` (string, optional — Italian description), `de` (string, optional — German description).
+  There is no `rating` or `price` field.
 - **FR-003**: Each card MUST display the restaurant `name` as a title.
 - **FR-004**: Each card MUST display the `description` as body text with no
   truncation — full text always visible.
@@ -104,7 +106,8 @@ styled at the end of the list with no other changes.
 
 - **Restaurant**: A data record in the restaurant list array. Fields: `name`
   (string), `description` (string), `mapsUrl` (optional string), `favourite`
-  (optional boolean).
+  (optional boolean), `it` (optional string — Italian description), `de` (optional
+  string — German description). No `rating` or `price` fields.
 
 ## Success Criteria *(mandatory)*
 

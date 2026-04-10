@@ -2,7 +2,7 @@
 
 **Feature Branch**: `009-gelaterie`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: "Gelaterie is like restaurants — same structure."
 **Reference spec**: `specs/004-restaurants/spec.md`
 
@@ -78,7 +78,9 @@ styled at the end of the list with no other changes.
   gelateria cards, one per entry in the data array.
 - **FR-002**: Each gelateria entry in the data array MUST support these fields:
   `name` (string), `description` (string), `mapsUrl` (string URL, optional),
-  `favourite` (boolean, optional — `true` shows an owner's pick badge, default `false`).
+  `favourite` (boolean, optional — `true` shows an owner's pick badge, default `false`),
+  `it` (string, optional — Italian description), `de` (string, optional — German description).
+  There is no `rating` or `price` field.
 - **FR-003**: Each card MUST display the gelateria `name` as a title.
 - **FR-004**: Each card MUST display the `description` as body text with no
   truncation — full text always visible.
@@ -102,7 +104,8 @@ styled at the end of the list with no other changes.
 
 - **Gelateria**: A data record in the gelaterie list array. Fields: `name`
   (string), `description` (string), `mapsUrl` (optional string), `favourite`
-  (optional boolean).
+  (optional boolean), `it` (optional string — Italian description), `de` (optional
+  string — German description). No `rating` or `price` fields.
 
 ## Success Criteria *(mandatory)*
 
@@ -125,8 +128,8 @@ styled at the end of the list with no other changes.
   name used in the home screen grid — feature 003).
 - Google Maps URLs are standard `https://maps.google.com/?q=...` links. Deep-link
   handling (opening the native Maps app on iOS/Android) is left to the OS.
-- Translation of names and descriptions is out of scope for the initial
-  English-only version; the fields are designed to support it when IT/DE are added.
+- Translation of names and descriptions is implemented for IT and DE — each gelateria
+  entry has `it` and `de` description fields alongside the English `description`.
 - The gelaterie section card uses the same `.card` component from the design
   system (feature 002) as the restaurants section — no new card variant is introduced.
 - The identical data structure to restaurants means the same rendering logic can

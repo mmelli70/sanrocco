@@ -8,7 +8,7 @@
 
 ## Phase 1: Data
 
-- [ ] T010-01 Add `CONTENT.sections.thingsToVisit` array (11 entries) to `index.html`:
+- [x] T010-01 Add `CONTENT.sections.thingsToVisit` array (11 entries) to `index.html`:
   ```js
   CONTENT.sections.thingsToVisit = [
     { name: "Borromean Islands", description: "Three iconic islands in Lake Maggiore: Isola Bella (baroque palace and gardens), Isola Madre (botanical garden), and Isola Pescatori (authentic fishing village). A must-see — book ferry tickets in advance in peak season.", infoUrl: "https://www.borromeoturismo.it" },
@@ -24,7 +24,7 @@
     { name: "Valle Verzasca (Switzerland)", description: "Just over the Swiss border — stunning turquoise river in a deep gorge. The famous Verzasca Dam (GoldenEye bungee jump site). Crystal-clear water for swimming and snorkelling.", infoUrl: "https://www.valleverzasca.ch" }
   ]
   ```
-- [ ] T010-02 Add string keys to `CONTENT.strings.en`: `visit_title`, `visit_openMaps`, `visit_moreInfo`, `visit_favourite`
+- [x] T010-02 Add string keys to `CONTENT.strings.en`: `visit_title`, `visit_openMaps`, `visit_moreInfo`, `visit_favourite`
 
 **Checkpoint**: 11 entries defined; 3 marked `favourite: true`; 4 have `infoUrl`.
 
@@ -32,8 +32,8 @@
 
 ## Phase 2: Section Markup & Render
 
-- [ ] T010-03 Add `<div class="screen" id="things-to-visit" hidden>` to `index.html`; prepend `createSectionHeader('visit_title')`
-- [ ] T010-04 Write `renderThingsToVisit()`: loop over array, build `.card`:
+- [x] T010-03 Add `<div class="screen" id="things-to-visit" hidden>` to `index.html`; prepend `createSectionHeader('visit_title')`
+- [x] T010-04 Write `renderThingsToVisit()`: loop over array, build `.card`:
   - Header: name + (if `favourite`) badge
   - Description paragraph
   - Action row: Maps button + (if `infoUrl`) `.btn-info` "More info" button
@@ -45,11 +45,11 @@
 
 ## Phase 3: Validation
 
-- [ ] T010-05 All 11 cards render at 360 dp; 2-button action rows fit without overflow ✅
-- [ ] T010-06 3 starred entries show ★ badge ✅
-- [ ] T010-07 infoUrl entries show "More info" button ✅
-- [ ] T010-08 All Maps and info links open on device ✅
-- [ ] T010-09 Back button returns to home ✅
+- [x] T010-05 All 11 cards render at 360 dp; 2-button action rows fit without overflow ✅
+- [x] T010-06 3 starred entries show ★ badge ✅
+- [x] T010-07 infoUrl entries show "More info" button ✅
+- [x] T010-08 All Maps and info links open on device ✅
+- [x] T010-09 Back button returns to home ✅
 
 ---
 
@@ -59,3 +59,9 @@
 - T010-03 → T010-04
 - Phase 3 depends on Phase 2
 - Reuses `renderFavouriteBadge()` from spec 004
+
+---
+
+## Additional Tasks (Implemented but not originally planned)
+
+- [x] T010-NEW Replace `mapsUrl` with `infoUrl` in data schema; add `it` and `de` description fields to each entry

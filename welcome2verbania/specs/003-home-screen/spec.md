@@ -2,7 +2,7 @@
 
 **Feature Branch**: `003-home-screen`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "after the splash page, a new page will show with buttons with icons and text for the main sections of the document — How to reach us, House rules, Supermarkets, Restaurants, Gelaterie, Beaches, Things to visit, Adrenaline attractions, Boat rental. Every icon and text is in a box and two boxes are shown per row. The list can be expanded in the future and must be easily updated."
 
 ## User Scenarios & Testing *(mandatory)*
@@ -80,13 +80,13 @@ the grid automatically, correctly styled, without any other change.
   dismissed, with no additional user action required.
 - **FR-002**: The home screen MUST display all defined sections as boxes arranged in
   a **2-column grid**.
-- **FR-003**: Each box MUST contain one icon (emoji) and one text label, vertically
-  stacked and centred.
+- **FR-003**: Each box MUST contain one SVG line art icon (24px, stroke-based) and one
+  text label, vertically stacked and centred.
 - **FR-004**: The section list MUST be defined as a data array in the `CONTENT`
   object (alongside language strings) so that adding or removing a section requires
   editing only that array — no structural HTML changes.
 - **FR-005**: Each section entry in the data array MUST have at minimum: an `icon`
-  (emoji string), a `label` key (looked up from language strings), and a `target`
+  (SVG line art string), a `label` key (looked up from language strings), and a `target`
   identifier used to show the correct content section.
 - **FR-006**: Tapping a box MUST navigate to the corresponding content section within
   the same page (no reload, no new tab).
@@ -132,10 +132,10 @@ the grid automatically, correctly styled, without any other change.
 - The home screen replaces the role of the navigation bar seen in `demo.html` as the
   primary way to enter sections. The demo's horizontal scrollable nav bar may coexist
   inside sections but is not the entry point.
-- Section boxes use emoji icons (consistent with the flag selector in feature 001).
-  No external icon library or SVG sprites are needed.
-- The 9 initial sections listed in FR-008 do not all have content yet; most will show
-  a "coming soon" placeholder. Content for each section is a separate future spec.
+- Section boxes use SVG line art icons (24px, stroke-based, consistent with the design
+  system in feature 002). Emoji icons were considered but replaced during implementation.
+- The 11 initial sections listed in FR-008 are all fully implemented with content
+  (not "coming soon" placeholders). All sections were built as part of the initial release.
 - The home screen is distinct from the splash/welcome screen (feature 001): the splash
   is a full-screen cover; the home screen is the navigation hub shown after entering.
 - Label translation keys for the 9 sections will be added to `CONTENT.strings` for

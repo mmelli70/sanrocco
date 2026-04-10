@@ -2,7 +2,7 @@
 
 **Feature Branch**: `007-how-to-reach`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "this section will show a text with the description to reach the apartment, and a box highly visible where is explained that the house is in a ZTL area and the image of the road signs"
 
 ## User Scenarios & Testing *(mandatory)*

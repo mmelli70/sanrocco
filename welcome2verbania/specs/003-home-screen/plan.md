@@ -1,6 +1,7 @@
 # Implementation Plan: Home Screen
 
 **Branch**: `003-home-screen` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -22,7 +23,7 @@ section gets a persistent back/home button so the guest can always return.
 
 | Principle | Status | Notes |
 |-----------|--------|-------|
-| I. Self-Contained | ✅ PASS | No external icons; emoji only |
+| I. Self-Contained | ✅ PASS | No external icons; SVG line art inline |
 | II. Offline-First | ✅ PASS | Pure JS routing; no network calls |
 | III. Mobile-First | ✅ PASS | 2-col grid; 44 px tap targets |
 | IV. Multilingual | ✅ PASS | Labels keyed via `CONTENT.strings[lang]` |
@@ -52,5 +53,13 @@ No new files. All changes land in `index.html`.
 - "Coming soon" fallback for unimplemented sections
 
 ### Phase 3 — Multilingual Labels
-- Add 11 label keys to `CONTENT.strings.en` (and IT/DE placeholders)
-- Verify all labels display correctly in EN; no truncation at 360 dp
+- Add 11 label keys to `CONTENT.strings.en` (and IT/DE)
+- Verify all labels display correctly in EN, IT, and DE; no truncation at 360 dp
+
+## Implementation Notes (Actual vs Planned)
+
+- **Icons**: SVG line art (24px, stroke-based) used — NOT emoji as planned. This aligns
+  with the luxury hotel aesthetic of the design system.
+- **All sections implemented**: No "coming soon" placeholders — all 11 sections have
+  full content in the initial release.
+- **Multilingual**: All 11 labels translated to IT and DE (not just placeholder strings).

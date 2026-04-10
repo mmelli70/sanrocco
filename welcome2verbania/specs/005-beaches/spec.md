@@ -2,7 +2,7 @@
 
 **Feature Branch**: `005-beaches`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: User description: "beaches section will show a list of my preferred beaches: the data displayed are: name, Google Maps link, a short description (between 500 and 1000 characters), and a star if it's my preferred one"
 
 ## User Scenarios & Testing *(mandatory)*
@@ -105,7 +105,8 @@ indicator visible, correctly styled, with no other changes.
 ### Key Entities
 
 - **Beach**: A data record. Fields: `name` (string), `description` (string),
-  `mapsUrl` (optional string), `favourite` (boolean, default `false`).
+  `mapsUrl` (optional string), `favourite` (boolean, default `false`),
+  `it` (optional string — Italian description), `de` (optional string — German description).
 - **Favourite Indicator**: A visual element shown only when `favourite` is `true`.
   Rendered as a ★ symbol and/or a badge label (e.g., "Owner's Pick").
 
@@ -132,9 +133,8 @@ indicator visible, correctly styled, with no other changes.
   the UI does not enforce minimum or maximum lengths.
 - The initial beach list will be populated with the owner's actual recommendations
   (seed content below).
-- Translation of beach names and descriptions is out of scope for the initial
-  English-only version; the data structure is designed to support it when IT/DE
-  are added.
+- Translation of beach names and descriptions is implemented for IT and DE — each beach
+  entry has `it` and `de` description fields alongside the English `description`.
 - The beaches section shares the same card visual style as the restaurants section
   (feature 004); no new card variant is introduced beyond the favourite indicator.
 - Google Maps URLs follow the same convention as feature 004 (`https://maps.google.com/?q=...`).

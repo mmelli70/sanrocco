@@ -41,7 +41,9 @@ The current version number MUST be visible inside the document.
 - **Styling**: Inline CSS or `<style>` block only; no external stylesheet references
 - **Scripting**: Vanilla JavaScript only; no frameworks, no npm dependencies
 - **Images**: Embedded as base64 data URIs or SVG inline — no `<img src="http...">` references
-- **Fonts**: System fonts stack only (e.g., `-apple-system, BlinkMacSystemFont, sans-serif`)
+- **Fonts**: Cormorant Garamond (serif, headings) and Jost (sans-serif, body) embedded
+  as WOFF2 base64 data URIs via `@font-face`. System font stack used only as fallback.
+  Total embedded font payload: 5 variants.
 - **Storage**: No `localStorage`, `IndexedDB`, or cookies — stateless by design
 
 ## Content Update Workflow
@@ -55,6 +57,16 @@ The current version number MUST be visible inside the document.
 Content authors MUST NOT be required to understand HTML to update text, links, or
 restaurant/attraction entries. Content SHOULD be separable from presentation.
 
+## Deployment
+
+The project is live and deployed at:
+
+- **Netlify**: https://welcome2verbania.netlify.app
+- **GitHub**: https://github.com/mmelli70/sanrocco
+
+The single `index.html` file (~1.4 MB with all base64-embedded assets) is also
+distributable directly as a WhatsApp/email attachment — fully offline capable.
+
 ## Governance
 
 This constitution supersedes all other practices and guidelines for this project.
@@ -66,4 +78,4 @@ Any proposed change to a Core Principle requires:
 All feature specifications MUST reference and comply with these principles.
 Any spec that conflicts with a Core Principle is invalid and MUST be revised before planning.
 
-**Version**: 1.0.0 | **Ratified**: 2026-04-10 | **Last Amended**: 2026-04-10
+**Version**: 1.1.0 | **Ratified**: 2026-04-10 | **Last Amended**: 2026-07-09

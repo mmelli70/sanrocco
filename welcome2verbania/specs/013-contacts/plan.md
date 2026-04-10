@@ -1,6 +1,7 @@
 # Implementation Plan: Contacts Section
 
 **Branch**: `013-contacts` | **Date**: 2026-04-10 | **Spec**: [spec.md](spec.md)
+**Status**: COMPLETE
 
 ## Summary
 
@@ -59,3 +60,8 @@ CONTENT.sections.contacts = {
 - Tap phone number → dialler pre-filled ✅
 - Tap WhatsApp → WhatsApp opens with contact pre-filled ✅
 - Works on airplane mode (no network needed for link construction) ✅
+
+## Implementation Notes (Actual vs Planned)
+
+- **Contact**: Marco Melli, +39 335 6328554 (phone and WhatsApp same number).
+- **Signal note**: Translated to Italian and German in all language strings.

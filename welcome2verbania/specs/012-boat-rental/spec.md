@@ -2,7 +2,7 @@
 
 **Feature Branch**: `012-boat-rental`
 **Created**: 2026-04-10
-**Status**: Draft
+**Status**: IMPLEMENTED
 **Input**: "Boat rental is just a document section." Rich content provided by owner,
 originally written by a guest (Philipp). Covers 6 rental operators + general tips.
 
