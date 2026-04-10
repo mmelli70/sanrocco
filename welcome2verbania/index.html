@@ -61,6 +61,7 @@
     button { cursor: pointer; background: none; border: none; font-family: var(--font-b); }
 
     /* ── Screens ────────────────────────────────────────────────────────── */
+    [hidden] { display: none !important; }
     .screen {
       position: relative;
       min-height: 100dvh;
@@ -549,7 +550,7 @@
       <p class="subtitle" data-i18n="subtitle">Bed &amp; Breakfast Guest Guide</p>
       <p class="location" data-i18n="location">Verbania — Italy</p>
       <div class="lang-selector" id="lang-selector"></div>
-      <button class="enter-btn" id="enter-btn" data-i18n="enterGuide">Enter Guide</button>
+      <button class="enter-btn" id="enter-btn" data-i18n="enterGuide" onclick="navigate('home')">Enter Guide</button>
     </div>
     <span class="version">v1.0.0</span>
   </div>
@@ -1341,9 +1342,11 @@
     }
 
     // ─── Init ────────────────────────────────────────────────────────────────
-    document.addEventListener('DOMContentLoaded', () => {
+    function initApp() {
       // Build language selector
       const langSelector = document.getElementById('lang-selector');
+      if (!langSelector || langSelector.dataset.init) return;
+      langSelector.dataset.init = '1';
       CONTENT.languages.forEach(lang => {
         const btn = document.createElement('button');
         btn.className = 'lang-btn' + (lang.code === currentLang ? ' active' : '');
@@ -1375,7 +1378,12 @@
 
       // Set initial language
       setLanguage(currentLang);
-    });
+    }
+    // Script is at bottom of body: DOM already ready. Run immediately.
+    initApp();
+    // Fallback for any WebView that defers DOM parsing
+    document.addEventListener('DOMContentLoaded', initApp);
+    window.addEventListener('load', initApp);
   </script>
 </body>
 </html>
