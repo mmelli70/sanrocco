@@ -168,12 +168,22 @@ file — the new text is shown with no layout breakage.
 
 ### Functional Requirements
 
-- **FR-001**: The section MUST display a directions text block describing how to
+- **FR-001**: The section MUST display the apartment address card at the very top,
+  before all other content. The card MUST show the label `reach_addressLabel`
+  (e.g., "The apartment address is:"), the full address
+  "Piazza San Rocco 2, 28921 Verbania (VB)", and a "Open in Google Maps" button
+  linking to `https://maps.app.goo.gl/jSMxfU1n2eMQ7mQ47` — opening in a new tab.
+  Both label and address string are stored in `CONTENT.strings[lang]` and are
+  translatable.
+- **FR-001b**: The section MUST display a directions text block describing how to
   reach the property. The text is stored in `CONTENT.strings[lang]` and is
   translatable.
 - **FR-002**: The section MUST display a ZTL warning box that is visually
-  prominent — differentiated from body text by a distinct background colour,
-  border, or icon that signals a warning or important notice.
+  prominent — differentiated from body text by a distinct background colour
+  (`#ffff7f`), border, or icon that signals a warning or important notice.
+  The ZTL box MUST use the `.ztl-box` CSS class (distinct from the generic
+  `.warning-box` class used elsewhere) to scope the yellow background exclusively
+  to the ZTL warning.
 - **FR-003**: The ZTL warning box MUST contain a text explanation of the ZTL
   restriction and its implications for the guest. The text is stored in
   `CONTENT.strings[lang]` and is translatable.
@@ -207,7 +217,13 @@ file — the new text is shown with no layout breakage.
   full-width (or near full-width) image within the content column, with a brief
   optional caption. No horizontal overflow on 320 dp screens.
 - **FR-013**: The section MUST include a "Parking" sub-section, positioned after
-  "Reach the House". The sub-section heading MUST be translatable.
+  "Reach the House". The sub-section heading MUST be translatable and rendered at
+  a larger font size (1.6rem) than standard section headers to emphasise it.
+- **FR-013a**: The Parking sub-section MUST display a map image (`parking.png`)
+  embedded as a base64 data URI, positioned immediately below the Parking heading.
+  Below the image, a colour legend MUST be shown (stored in
+  `CONTENT.strings[lang].reach_parking_legend`), e.g.:
+  "Green: free parking — Yellow: paid parking or time-limited". The legend is translatable.
 - **FR-014**: Each parking entry MUST display: a **name**, a **description**, and
   an optional **photo**. An optional **Google Maps link** opens the location
   externally.
@@ -272,7 +288,7 @@ file — the new text is shown with no layout breakage.
   visual style) will be introduced in this feature and added to the design system
   contract (feature 002).
 - The section does not include a live map embed — a "Open in Maps" link to the
-  property address may be added as an optional enhancement in a future version.
+  property address is shown at the top of the section as a dedicated address card.
 - The "Reach the House" sub-section contains exactly 3 fixed photo slots
   (`assets/door1.jpg`, `assets/door2.jpg`, `assets/door3.jpg`). This count is fixed by design;
   if more photos are needed in the future a new spec revision is required.

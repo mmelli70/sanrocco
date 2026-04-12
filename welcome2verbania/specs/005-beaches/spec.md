@@ -82,7 +82,10 @@ indicator visible, correctly styled, with no other changes.
   cards, one per entry in the data array.
 - **FR-002**: Each beach entry in the data array MUST support these fields: `name`
   (string), `description` (string, guideline: 500–1000 characters), `mapsUrl`
-  (string URL, optional), `favourite` (boolean).
+  (string URL, optional), `favourite` (boolean),
+  `distanceKm` (number, optional — distance in km from Piazza San Rocco 2, displayed as a badge),
+  `it` (string, optional — Italian description), `de` (string, optional — German description),
+  `es` (string, optional — Spanish description), `fr` (string, optional — French description).
 - **FR-003**: Each card MUST display the beach `name` as a title.
 - **FR-004**: Each card MUST display the full `description` as body text — no
   truncation; the complete text is always visible.
@@ -106,7 +109,9 @@ indicator visible, correctly styled, with no other changes.
 
 - **Beach**: A data record. Fields: `name` (string), `description` (string),
   `mapsUrl` (optional string), `favourite` (boolean, default `false`),
-  `it` (optional string — Italian description), `de` (optional string — German description).
+  `distanceKm` (optional number — km from Piazza San Rocco 2),
+  `it` (optional string — Italian description), `de` (optional string — German description),
+  `es` (optional string — Spanish description), `fr` (optional string — French description).
 - **Favourite Indicator**: A visual element shown only when `favourite` is `true`.
   Rendered as a ★ symbol and/or a badge label (e.g., "Owner's Pick").
 

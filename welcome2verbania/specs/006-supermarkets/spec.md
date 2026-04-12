@@ -73,7 +73,10 @@ no other changes required.
 - **FR-001**: The Supermarkets section MUST display a vertically scrolling list of
   shop cards, one per entry in the data array.
 - **FR-002**: Each shop entry MUST support: `name` (string), `description` (string),
-  `mapsUrl` (optional string), `favourite` (boolean).
+  `mapsUrl` (optional string), `favourite` (boolean),
+  `distanceKm` (number, optional — distance in km from Piazza San Rocco 2, displayed as a badge),
+  `it` (optional string — Italian description), `de` (optional string — German description),
+  `es` (optional string — Spanish description), `fr` (optional string — French description).
 - **FR-003**: Each card MUST display the shop `name` as a title.
 - **FR-004**: Each card MUST display the full `description` as body text with no
   truncation.
@@ -96,7 +99,9 @@ no other changes required.
 
 - **Shop**: A data record. Fields: `name` (string), `description` (string),
   `mapsUrl` (optional string), `favourite` (boolean, default `false`),
-  `it` (optional string — Italian description), `de` (optional string — German description).
+  `distanceKm` (optional number — km from Piazza San Rocco 2),
+  `it` (optional string — Italian description), `de` (optional string — German description),
+  `es` (optional string — Spanish description), `fr` (optional string — French description).
 - **Favourite Indicator**: A ★ symbol and/or badge shown only when `favourite: true`.
   Visually identical to the indicator used in the Beaches section.
 

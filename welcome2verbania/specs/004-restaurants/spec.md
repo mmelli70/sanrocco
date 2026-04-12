@@ -78,7 +78,9 @@ styled at the end of the list with no other changes.
 - **FR-002**: Each restaurant entry in the data array MUST support these fields:
   `name` (string), `description` (string), `mapsUrl` (string URL, optional),
   `favourite` (boolean, optional — `true` shows an owner's pick badge, default `false`),
-  `it` (string, optional — Italian description), `de` (string, optional — German description).
+  `distanceKm` (number, optional — distance in km from Piazza San Rocco 2, displayed as a badge),
+  `it` (string, optional — Italian description), `de` (string, optional — German description),
+  `es` (string, optional — Spanish description), `fr` (string, optional — French description).
   There is no `rating` or `price` field.
 - **FR-003**: Each card MUST display the restaurant `name` as a title.
 - **FR-004**: Each card MUST display the `description` as body text with no
@@ -106,8 +108,10 @@ styled at the end of the list with no other changes.
 
 - **Restaurant**: A data record in the restaurant list array. Fields: `name`
   (string), `description` (string), `mapsUrl` (optional string), `favourite`
-  (optional boolean), `it` (optional string — Italian description), `de` (optional
-  string — German description). No `rating` or `price` fields.
+  (optional boolean), `distanceKm` (optional number — km from Piazza San Rocco 2),
+  `it` (optional string — Italian description), `de` (optional string — German description),
+  `es` (optional string — Spanish description), `fr` (optional string — French description).
+  No `rating` or `price` fields.
 
 ## Success Criteria *(mandatory)*
 
