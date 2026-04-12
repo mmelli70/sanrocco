@@ -391,6 +391,22 @@
       margin-top: 0.75rem;
       display: block;
     }
+    .address-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem;
+      margin: 1.25rem 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .address-text {
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      margin: 0;
+    }
 
     /* ── Contacts ───────────────────────────────────────────────────────── */
     .contact-card {
@@ -678,6 +694,8 @@
           reach_house_body: "When you reach Piazza San Rocco, search the gate at number 2. The bell is MELLI, push it or call me via whatsapp. Usually, I will be waiting for you. It you plan to arrive very late, I will leave the keys in a safebox.\nGo at the end of the walkway and go to the second floor.\nNOTE: please do not close the gate at the beginning of the stairs.",
           reach_parking_title: "Parking",
           reach_openMaps: "Open in Maps",
+          reach_address: "Piazza San Rocco 2, 28921 Verbania (VB)",
+          reach_addressBtn: "View on Google Maps",
           rules_title: "House Rules",
           rules_checkin_title: "Check-In / Check-Out",
           rules_checkin_body: "Check-in: from 4:00 PM\nCheck-out: by 10:00 AM",
@@ -754,6 +772,8 @@
           reach_house_body: "Arrivato in Piazza San Rocco, cerca il cancello al numero 2. Il campanello è etichettato MELLI, suonalo o chiamami via WhatsApp. Di solito sarò ad aspettarti. Se prevedi di arrivare molto tardi, lascerò le chiavi in una cassaforte.\nPercorri il vialetto fino in fondo e sali al secondo piano.\nNOTA: si prega di non chiudere il cancello all\'inizio delle scale.",
           reach_parking_title: "Parcheggio",
           reach_openMaps: "Apri in Maps",
+          reach_address: "Piazza San Rocco 2, 28921 Verbania (VB)",
+          reach_addressBtn: "Visualizza su Google Maps",
           rules_title: "Regole della Casa",
           rules_checkin_title: "Check-In / Check-Out",
           rules_checkin_body: "Check-in: dalle 16:00\nCheck-out: entro le 10:00",
@@ -830,6 +850,8 @@
           reach_house_body: "Wenn Sie die Piazza San Rocco erreichen, suchen Sie das Tor an der Nummer 2. Die Klingel ist mit MELLI beschriftet – klingeln Sie oder kontaktieren Sie mich per WhatsApp. Normalerweise warte ich auf Sie. Wenn Sie sehr spät ankommen, hinterlege ich die Schlüssel in einem Safe.\nGehen Sie bis ans Ende des Gehwegs und steigen Sie in den zweiten Stock.\nHINWEIS: Bitte schließen Sie das Tor am Beginn der Treppe nicht.",
           reach_parking_title: "Parken",
           reach_openMaps: "In Maps öffnen",
+          reach_address: "Piazza San Rocco 2, 28921 Verbania (VB)",
+          reach_addressBtn: "Auf Google Maps ansehen",
           rules_title: "Hausregeln",
           rules_checkin_title: "Check-In / Check-Out",
           rules_checkin_body: "Check-in: ab 16:00 Uhr\nCheck-out: bis 10:00 Uhr",
@@ -906,6 +928,8 @@
           reach_house_body: "Cuando llegue a la Piazza San Rocco, busque el portal en el número 2. El timbre es MELLI, púlselo o llámeme por WhatsApp. Normalmente estaré esperándole. Si planea llegar muy tarde, dejaré las llaves en una caja fuerte.\nDiríjase al fondo del pasillo y suba al segundo piso.\nNOTA: por favor no cierre el portal al inicio de las escaleras.",
           reach_parking_title: "Aparcamiento",
           reach_openMaps: "Abrir en Maps",
+          reach_address: "Piazza San Rocco 2, 28921 Verbania (VB)",
+          reach_addressBtn: "Ver en Google Maps",
           rules_title: "Normas de la Casa",
           rules_checkin_title: "Check-In / Check-Out",
           rules_checkin_body: "Check-in: desde las 16:00\nCheck-out: antes de las 10:00",
@@ -982,6 +1006,8 @@
           reach_house_body: "Lorsque vous arrivez sur la Piazza San Rocco, cherchez le portail au numéro 2. La sonnette est MELLI, appuyez dessus ou contactez-moi par WhatsApp. En général, je vous attendrai. Si vous prévoyez d\'arriver très tard, je laisserai les clés dans un coffre.\nAllez jusqu\'au bout de l\'allée et montez au deuxième étage.\nNOTE : veuillez ne pas fermer le portail au bas des escaliers.",
           reach_parking_title: "Parking",
           reach_openMaps: "Ouvrir dans Maps",
+          reach_address: "Piazza San Rocco 2, 28921 Verbania (VB)",
+          reach_addressBtn: "Voir sur Google Maps",
           rules_title: "Règlement de la Maison",
           rules_checkin_title: "Check-In / Check-Out",
           rules_checkin_body: "Check-in : à partir de 16h00\nCheck-out : avant 10h00",
@@ -1323,6 +1349,10 @@
 
       el.innerHTML = createSectionHeader('reach_title') + `
         <div class="container section-content">
+          <div class="address-card">
+            <p class="address-text">📍 ${escHtml(s('reach_address'))}</p>
+            <a href="https://maps.app.goo.gl/jSMxfU1n2eMQ7mQ47" target="_blank" rel="noopener noreferrer" class="btn btn-maps maps-btn">${escHtml(s('reach_addressBtn'))} →</a>
+          </div>
           <div class="warning-box">
             <h3>${escHtml(s('reach_ztl_title'))}</h3>
             <p class="pre-line">${nl2br(s('reach_ztl_body'))}</p>
