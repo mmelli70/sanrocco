@@ -180,6 +180,12 @@ CONTENT.sections.restaurants = [
     mapsUrl:     "https://g.co/kgs/b5xugtA"
   },
   {
+    name:        "La Terrazza",
+    description: "One of the best locations on the lake. Outstanding pizza, very good food overall, very reasonable prices. Highly recommended.",
+    mapsUrl:     "https://maps.app.goo.gl/LNbFp2L1VceG2uC78",
+    favourite:   true
+  },
+  {
     name:        "Donna Francesca",
     description: "⭐ MY PREFERRED CHOICE FOR OVERALL RESTAURANT. In Cossogno (the road is a little tricky but worth it). A cozy, rustic osteria with hearty homemade Italian cuisine made with local, seasonal ingredients. Every dish on the menu is usually excellent, prices are very reasonable, and the quality/price ratio is outstanding. Request a table outside — book in advance, especially at weekends.",
     mapsUrl:     "https://g.co/kgs/cYiBsFk",
@@ -201,12 +207,6 @@ CONTENT.sections.restaurants = [
     name:        "La Pescheria (Isola Pescatori)",
     description: "On Isola Pescatori (Isola Superiore). Very good food, reasonable prices. The better location of the two island restaurants — dining under the pergola 'al fresco' is a wonderful experience. My usual choice when visiting the island.",
     mapsUrl:     "https://maps.app.goo.gl/mW5Knm882zSTd33NA",
-    favourite:   true
-  },
-  {
-    name:        "La Terrazza",
-    description: "One of the best locations on the lake. Outstanding pizza, very good food overall, very reasonable prices. Highly recommended.",
-    mapsUrl:     "https://maps.app.goo.gl/LNbFp2L1VceG2uC78",
     favourite:   true
   }
 ]
