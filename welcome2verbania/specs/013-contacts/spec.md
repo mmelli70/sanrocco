@@ -64,7 +64,14 @@ Open the file — the new number is shown.
 
 ### Functional Requirements
 
-- **FR-001**: The section MUST display the owner's name as the primary heading.
+- **FR-001**: The section MUST display the owner's name as the primary heading,
+  followed immediately by a brief personal bio paragraph below the name.
+- **FR-001a**: The bio paragraph MUST read (in English): "Hi, I'm Marco! I'm an
+  electronics engineer with a passion for good food. This guide is designed to give
+  you some useful information and share my favourite local restaurants and spots.
+  For anything you need, feel free to contact me directly using the details you'll
+  find here. I hope you will enjoy your stay in my house." — stored as
+  `contacts_bio` in `CONTENT.strings[lang]` and translated for all active languages.
 - **FR-002**: The section MUST display contact details stored in `CONTENT.strings[lang].ownerContact`.
   Supported fields (all optional except at least one contact method):
   - `name` (string) — displayed as heading

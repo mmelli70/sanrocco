@@ -35,20 +35,22 @@ and all text and the background image are visible.
 ### User Story 2 - Guest Selects Their Language (Priority: P2)
 
 A guest taps a language flag to switch the guide to their preferred language.
-English (EN), Italian (IT), and German (DE) are all implemented and fully functional.
+English (EN) is the primary language; Italian (IT), German (DE), Spanish (ES), and
+French (FR) are also fully implemented and functional.
 
-**Why this priority**: Language selection is the gateway to all content. All three
+**Why this priority**: Language selection is the gateway to all content. All five
 languages are implemented and the flag UI switches the guide content immediately.
 
-**Independent Test**: Tap the EN/IT/DE flag. Verify the guide switches all text to
-the selected language with no page reload.
+**Independent Test**: Tap any language flag (EN/IT/DE/ES/FR). Verify the guide
+switches all text to the selected language with no page reload.
 
 **Acceptance Scenarios**:
 
 1. **Given** the welcome page is displayed, **When** the guest taps the English flag,
    **Then** the guide content is shown in English with no page reload.
-2. **Given** three languages are available, **When** the guest views the language selector,
-   **Then** EN, IT, and DE flags are all shown and the active language is highlighted.
+2. **Given** five languages are available, **When** the guest views the language
+   selector, **Then** EN, IT, DE, ES, and FR flags are all shown and the active
+   language is highlighted.
 3. **Given** a flag is tapped, **When** the transition completes,
    **Then** the guest is taken to the guide's main content in the selected language.
 
@@ -74,9 +76,10 @@ the selected language with no page reload.
 - **FR-005**: The background MUST be a full-screen image that covers the entire viewport.
 - **FR-006**: The page MUST be fully legible with no internet connection (image inlined).
 - **FR-007**: All text MUST remain readable over the background image (contrast/overlay).
-- **FR-008**: English (EN), Italian (IT), and German (DE) languages MUST all be
-  selectable and result in the guide content switching to the correct language.
-  All three flags are fully active — no placeholders.
+- **FR-008**: English (EN), Italian (IT), German (DE), Spanish (ES), and French (FR)
+  languages MUST all be selectable and result in the guide content switching to the
+  correct language. English is the primary/default language. All five flags are
+  fully active — no placeholders.
 - **FR-009**: The page MUST work correctly when opened from WhatsApp, email clients,
   iOS Safari, and Android Chrome without any installation or extra permissions.
 - **FR-010**: The entire welcome screen MUST be visible without scrolling on a typical
@@ -99,13 +102,14 @@ the selected language with no page reload.
   visible without scrolling on screens 360 dp wide and taller than 640 dp.
 - **SC-003**: The background image and text are visible in 100% of test opens across
   iOS Safari, Android Chrome, WhatsApp in-app browser, and Gmail in-app browser.
-- **SC-004**: Tapping any flag (EN/IT/DE) results in guide content being shown in the
-  selected language with no full-page reload.
+- **SC-004**: Tapping any flag (EN/IT/DE/ES/FR) results in guide content being shown
+  in the selected language with no full-page reload.
 
 ## Assumptions
 
 - The background image is `assets/home.jpeg`, embedded as base64 in `index.html`.
-- English (EN), Italian (IT), and German (DE) are all implemented and fully translated.
+- English (EN), Italian (IT), German (DE), Spanish (ES), and French (FR) are all
+  implemented and fully translated. English is the default language.
 - The welcome screen is the first thing the guest sees when opening the file;
   it acts as a cover page before navigating to the guide content.
 - Text capitalisation follows the user's specification exactly:
