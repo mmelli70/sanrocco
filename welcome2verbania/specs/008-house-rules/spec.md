@@ -288,10 +288,10 @@ the file — the new password is shown in the WiFi block.
   without modification.
 - The introductory sentence ("To make your stay and the stay of future guests
   enjoyable, we kindly ask you to observe the following rules:") is seed content
-  for `houseRulesIntro`. Translation to IT and DE is the owner's responsibility.
+  for `houseRulesIntro`. Translation to IT, DE, ES, and FR is the owner's responsibility.
 - Kitchen seed content (welcome message, supplies note, Pastamaker offer, dishwasher
   caution) and Jacuzzi seed content (soap prohibition, approved oil) are provided by
-  the owner. Translation to IT and DE is the owner's responsibility.
+  the owner. Translation to IT, DE, ES, and FR is the owner's responsibility.
 - The "specific oil" for the jacuzzi is assumed to be physically present in the
   bathroom; its name/brand is not specified in this guide — "the specific oil you
   can find in the bathroom" is sufficient.

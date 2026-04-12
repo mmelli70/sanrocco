@@ -135,7 +135,8 @@ styled at the end of the list with no other changes.
 - Google Maps URLs are standard short links. Deep-link handling (opening the native
   Maps app on iOS/Android) is left to the OS.
 - Translation of restaurant names and descriptions is out of scope for the initial
-  English-only version; the fields are designed to support it when IT/DE are added.
+  English-only version; the fields are designed to support IT/DE/ES/FR translations.
+  All 5 supported languages (EN/IT/DE/ES/FR) must be populated before publishing.
 - Section categories (e.g., "Fine Dining", "Traditional") as seen in `demo.html`
   are not required by this spec — a flat list is sufficient. Categories may be
   added in a future spec as a section divider using `.ornament-divider`.
@@ -144,7 +145,7 @@ styled at the end of the list with no other changes.
 
 ## Seed Content
 
-Owner-provided entries for `CONTENT.sections.restaurants`. IT/DE translations are the owner's responsibility.
+Owner-provided entries for `CONTENT.sections.restaurants`. IT/DE/ES/FR translations are the owner's responsibility.
 
 ```js
 CONTENT.sections.restaurants = [

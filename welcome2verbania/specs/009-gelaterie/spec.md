@@ -141,7 +141,7 @@ styled at the end of the list with no other changes.
 
 ## Seed Content
 
-Owner-provided entries for `CONTENT.sections.gelaterie`. IT/DE translations are the owner's responsibility.
+Owner-provided entries for `CONTENT.sections.gelaterie`. IT/DE/ES/FR translations are the owner's responsibility.
 
 ```js
 CONTENT.sections.gelaterie = [

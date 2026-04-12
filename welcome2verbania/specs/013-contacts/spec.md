@@ -93,7 +93,7 @@ Open the file — the new number is shown.
   Contact details SHOULD use the `.info-box` or `.emergency-card` component for
   a clear, scannable layout.
 - **FR-008**: All text content (labels, note) MUST be stored in `CONTENT.strings[lang]`
-  and be translatable (IT / EN / DE). Phone numbers and email are language-neutral.
+  and be translatable (EN / IT / DE / ES / FR). Phone numbers and email are language-neutral.
 
 ### Key Entities
 
@@ -130,7 +130,7 @@ Open the file — the new number is shown.
 
 ## Seed Content
 
-Owner-provided content for the English version. IT and DE translations are the
+Owner-provided content for the English version. IT, DE, ES, and FR translations are the
 owner's responsibility.
 
 **Introductory line**: "For any question or problem, feel free to call me:"

@@ -146,7 +146,7 @@ indicator visible, correctly styled, with no other changes.
 
 ## Seed Content
 
-Owner-provided entries for `CONTENT.sections.beaches`. IT/DE translations are the
+Owner-provided entries for `CONTENT.sections.beaches`. IT/DE/ES/FR translations are the
 owner's responsibility. Note: Quartina e Lido has two adjacent beaches — the first
 Maps link is used as the primary; both are mentioned in the description.
 

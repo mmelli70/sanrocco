@@ -296,7 +296,7 @@ file — the new text is shown with no layout breakage.
   push it or call me via WhatsApp. Usually, I will be waiting for you. If you plan
   to arrive very late, I will leave the keys in a safebox. Go to the end of the
   walkway and go to the second floor. NOTE: please do not close the gate at the
-  beginning of the stairs."* Translation to IT and DE is the owner's responsibility.
+  beginning of the stairs."* Translation to IT, DE, ES, and FR is the owner's responsibility.
 - Parking photos are optional per entry; the owner provides them at content-entry
   time. Cards without photos must render gracefully.
 - Parking photo assets are stored in `assets/parking/` and injected by `build.sh`
@@ -306,10 +306,8 @@ file — the new text is shown with no layout breakage.
 
 ## Seed Content
 
-Owner-provided content for the English version. IT and DE translations are the
-owner's responsibility.
-
-### ZTL Warning (`CONTENT.strings.en.ztlWarning`)
+Owner-provided content for the English version. IT, DE, ES, and FR translations are the
+owner's responsibility. (`CONTENT.strings.en.ztlWarning`)
 
 ```
 IMPORTANT NOTE: the B&B is in a restricted area. Access by car is permitted only

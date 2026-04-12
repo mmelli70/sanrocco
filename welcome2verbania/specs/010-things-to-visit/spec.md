@@ -174,7 +174,7 @@ the star and full description.
   includes entries of 400–600 characters). No maximum length is enforced — the card
   expands to fit.
 - The 11 entries from the owner's sample content are the seed data for this section.
-  Translation of descriptions to IT and DE is the owner's responsibility.
+  Translation of descriptions to IT, DE, ES, and FR is the owner's responsibility.
 - The `infoUrl` field covers the need for the Valle Formazza waterfall schedule link
   and any similar external reference. The schedule text itself is part of the
   `description` field — the URL is a supplementary "source" link.

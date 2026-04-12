@@ -189,7 +189,7 @@ The owner updates pricing, contact details, or adds a new operator by editing th
 - Pricing is stored as plain strings within the `fleet` array — no structured
   currency fields. This makes it easy for the owner to update without numeric parsing.
 - The General Tips block is editorial prose contributed by the same guest (Philipp)
-  and is stored as translatable content strings. IT/DE translation is the owner's
+  and is stored as translatable content strings. IT/DE/ES/FR translation is the owner's
   responsibility.
 - Google Maps links for operator locations are not in the seed content; they may be
   added later as an optional `mapsUrl` field per operator.

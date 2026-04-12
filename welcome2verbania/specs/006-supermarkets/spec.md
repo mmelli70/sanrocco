@@ -135,7 +135,7 @@ no other changes required.
 
 ## Seed Content
 
-Owner-provided entries for `CONTENT.sections.supermarkets`. IT/DE translations are
+Owner-provided entries for `CONTENT.sections.supermarkets`. IT/DE/ES/FR translations are
 the owner's responsibility.
 
 ```js

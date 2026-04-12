@@ -110,8 +110,8 @@ The owner updates a number or adds a new entry (e.g., local GP, dentist) by edit
   - Nearest pharmacy (to be filled by owner)
 - **FR-006**: The emergency list MUST be stored in `CONTENT.sections.emergency[]`.
   Adding or removing an entry requires editing only that array.
-- **FR-007**: Entry names and descriptions MUST be translatable
-  (`CONTENT.strings[lang]`). Phone numbers are language-neutral.
+- **FR-007**: Entry names and descriptions MUST be translatable in all 5 supported
+  languages (EN / IT / DE / ES / FR) via `CONTENT.strings[lang]`. Phone numbers are language-neutral.
 - **FR-008**: The section MUST use the `.emergency-card` component from feature 002
   for all entries. The component's visual style signals urgency (distinct from
   regular `.card` and `.info-box`).

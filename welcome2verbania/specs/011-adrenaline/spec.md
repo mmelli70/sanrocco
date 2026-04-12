@@ -94,7 +94,8 @@ description, and `infoUrl`. Open the file — the card appears with the info lin
   (key: `CONTENT.sections.adrenaline`). Adding or removing an entry MUST require
   editing only that array.
 - **FR-009**: Names and descriptions MUST be translatable — stored per language or
-  as language-keyed objects within each entry.
+  as language-keyed objects within each entry. All 5 supported languages
+  (EN / IT / DE / ES / FR) must have values defined.
 - **FR-010**: The section MUST display a "no recommendations yet" message when the
   list is empty.
 - **FR-011**: The section MUST use the visual design system from feature 002 —
