@@ -1321,7 +1321,7 @@
     function renderCard({ title, description, mapsUrl, mapsLabel, favourite, favouriteLabel, infoUrl, infoLabel, note, callNumber, whatsappNumber, distanceKm, distanceLabel }) {
       let badges = '';
       if (favourite && favouriteLabel) badges += `<span class="badge-favourite">★ ${escHtml(favouriteLabel)}</span> `;
-      if (distanceKm != null && distanceLabel) badges += `<span class="badge-distance">📍 ${escHtml(distanceLabel)}: ${distanceKm} km</span> `;
+      if (distanceKm != null) badges += `<span class="badge-distance">📍 ${distanceKm} km</span> `;
       if (note) badges += `<span class="badge-note">${escHtml(note)}</span> `;
 
       let actions = '';
