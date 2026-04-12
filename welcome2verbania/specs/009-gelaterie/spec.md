@@ -132,8 +132,8 @@ styled at the end of the list with no other changes.
   name used in the home screen grid — feature 003).
 - Google Maps URLs are standard `https://maps.google.com/?q=...` links. Deep-link
   handling (opening the native Maps app on iOS/Android) is left to the OS.
-- Translation of names and descriptions is implemented for IT and DE — each gelateria
-  entry has `it` and `de` description fields alongside the English `description`.
+- Translation of names and descriptions is implemented for IT, DE, ES, and FR — each gelateria
+  entry has `it`, `de`, `es`, and `fr` description fields alongside the English `description`.
 - The gelaterie section card uses the same `.card` component from the design
   system (feature 002) as the restaurants section — no new card variant is introduced.
 - The identical data structure to restaurants means the same rendering logic can

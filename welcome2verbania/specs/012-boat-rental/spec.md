@@ -135,10 +135,13 @@ The owner updates pricing, contact details, or adds a new operator by editing th
   disclaimer ("Not personally tested") so the guest understands the review is
   sourced from third-party information.
 - **FR-010**: The section MUST end with a "General Tips" block covering: fuel cost
-  estimates, water sports guidance, and booking advice. This block is stored in
-  `CONTENT.strings[lang].boatRentalTips` and is translatable.
+  estimates, water sports guidance, and booking advice. This block is stored as
+  six translatable keys in `CONTENT.strings[lang]`:
+  `boat_tipsFuelTitle`, `boat_tipsFuelBody`, `boat_tipsSportsTitle`,
+  `boat_tipsSportsBody`, `boat_tipsBookingTitle`, `boat_tipsBookingBody`.
+  All 5 languages (EN/IT/DE/ES/FR) must have these keys defined.
 - **FR-011**: All text content MUST be stored in `CONTENT` and be translatable
-  (IT / EN / DE). Contact details (phone numbers, URLs) are language-neutral.
+  (EN / IT / DE / ES / FR). Contact details (phone numbers, URLs) are language-neutral.
 - **FR-012**: The section MUST use the visual design system from feature 002.
   Operator sub-sections use the `.info-box` or `.rule-item` component. The General
   Tips block uses `.info-box`. No new component variants are introduced.

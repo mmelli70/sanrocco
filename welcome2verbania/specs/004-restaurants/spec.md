@@ -202,16 +202,16 @@ CONTENT.sections.restaurants = [
     favourite:   true
   },
   {
-    name:        "L'Imbarcadero (Isola Pescatori)",
-    description: "On Isola Pescatori (Isola Superiore) — reachable by public ferry from Verbania Intra. Very good food, reasonable prices, nice lake views. Slightly better food than its neighbour La Pescheria. Book in advance.",
-    mapsUrl:     null,
-    favourite:   false
-  },
-  {
     name:        "La Pescheria (Isola Pescatori)",
-    description: "On Isola Pescatori (Isola Superiore). Very good food, reasonable prices. The better location of the two island restaurants — dining under the pergola 'al fresco' is a wonderful experience. My usual choice when visiting the island.",
+    description: "On Isola Pescatori — reachable by public ferry from Verbania Intra. If you visit the Pescatori Island and want to have lunch, La Pescheria is my first choice. The 'alfresco' pergola in front of the lake is charming, and the food is very good. Prices are fair for quality and location.",
     mapsUrl:     "https://maps.app.goo.gl/mW5Knm882zSTd33NA",
     favourite:   true
+  },
+  {
+    name:        "L'Imbarcadero (Isola Pescatori)",
+    description: "On Isola Pescatori — reachable by public ferry from Verbania Intra. L'Imbarcadero is a very good restaurant, comparable to La Pescheria for quality and prices. Lake fish and risotto is their specialty. Book in advance.",
+    mapsUrl:     null,
+    favourite:   false
   }
 ]
 ```

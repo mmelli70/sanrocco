@@ -341,6 +341,30 @@
       margin-bottom: 0.35rem;
     }
 
+    /* ── WiFi Box ──────────────────────────────────────────────────────────── */
+    .wifi-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .wifi-network {
+      font-family: var(--font-b);
+      font-size: 0.95rem;
+    }
+    .wifi-network span {
+      font-weight: bold;
+      color: var(--accent);
+    }
+    .wifi-network--ext {
+      padding-top: 0.5rem;
+      border-top: 1px solid var(--border);
+    }
+    .wifi-ext-note {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 0.2rem;
+    }
+
     /* ── Action Buttons / Links ─────────────────────────────────────────── */
     .btn {
       font-family: var(--font-b);
@@ -746,6 +770,8 @@
           rules_wifi_title: "📶 WiFi",
           rules_wifi_ssid: "melli-fibra",
           rules_wifi_password: "04930493",
+          rules_wifi_ext_ssid: "melli-fibra-ext",
+          rules_wifi_ext_note: "Use this network if the main signal is weak",
           rules_kitchen_title: "🍽️ Kitchen — Dishwasher",
           rules_kitchen_body: "Guests are welcome to use the kitchen and you can freely use all the items and accessories.\nI left some supplies that you are welcome to use. For fairness towards the next guests, I kindly ask you to replace whatever you consume.\nI love cooking, so if you are interested in making fresh homemade pasta, let me know, I will show you how to use the \"Pastamaker\".\nNOTE: When you use the dishwasher, please do not open it after it has started, because due to a problem in the sensor, it does not stop and some water may leak out.",
           rules_jacuzzi_title: "🛁 Jacuzzi",
@@ -781,6 +807,12 @@
           boat_attribution: "Written by a guest — thank you, Philipp!",
           boat_notTested: "Not personally tested",
           boat_tipsTitle: "General Tips",
+          boat_tipsFuelTitle: "Fuel Costs",
+          boat_tipsFuelBody: "40 HP boats typically use €20–30 in fuel for a full day. Larger engines (115–260 HP) can cost €80–150+. Always ask whether fuel is included in the rental price.",
+          boat_tipsSportsTitle: "Water Sports",
+          boat_tipsSportsBody: "For water skiing and wakeboarding you need at least 115 HP. A 40 HP boat can pull a beginner on water skis in calm conditions but is underpowered for wakeboarding. Always ask the operator before loading equipment.",
+          boat_tipsBookingTitle: "Booking Advice",
+          boat_tipsBookingBody: "July–August is peak season. Book at least 3–7 days in advance. Some operators are fully booked weeks ahead. Mid-week is easier than weekends. Always confirm the reservation by phone the day before.",
         },
         it: {
           propertyName: "San Rocco",
@@ -826,6 +858,8 @@
           rules_wifi_title: "📶 WiFi",
           rules_wifi_ssid: "melli-fibra",
           rules_wifi_password: "04930493",
+          rules_wifi_ext_ssid: "melli-fibra-ext",
+          rules_wifi_ext_note: "Usa questa rete se il segnale principale è debole",
           rules_kitchen_title: "🍽️ Cucina — Lavastoviglie",
           rules_kitchen_body: "Gli ospiti sono benvenuti a usare la cucina e possono utilizzare liberamente tutti gli utensili e gli accessori.\nHo lasciato alcune provviste che potete usare. Per rispetto verso i prossimi ospiti, vi chiedo gentilmente di rimpiazzare ciò che consumate.\nAdoro cucinare, quindi se siete interessati a fare la pasta fresca fatta in casa, fatemelo sapere e vi mostrerò come usare la \"Pastamaker\".\nNOTA: quando usate la lavastoviglie, non apritela dopo che è stata avviata, perché a causa di un problema al sensore non si ferma e potrebbe fuoriuscire dell\'acqua.",
           rules_jacuzzi_title: "🛁 Jacuzzi",
@@ -861,6 +895,12 @@
           boat_attribution: "Scritto da un ospite — grazie Philipp!",
           boat_notTested: "Non testato personalmente",
           boat_tipsTitle: "Consigli Generali",
+          boat_tipsFuelTitle: "Costi del Carburante",
+          boat_tipsFuelBody: "I motori da 40 CV consumano tipicamente €20–30 di carburante per una giornata intera. I motori più grandi (115–260 CV) possono costare €80–150+. Chiedere sempre se il carburante è incluso nel prezzo di noleggio.",
+          boat_tipsSportsTitle: "Sport Acquatici",
+          boat_tipsSportsBody: "Per lo sci nautico e il wakeboard servono almeno 115 CV. Un motore da 40 CV può trainare un principiante sugli sci in condizioni di calma, ma è sottopotenziato per il wakeboard. Chiedere sempre all'operatore prima di caricare l'attrezzatura.",
+          boat_tipsBookingTitle: "Consigli per la Prenotazione",
+          boat_tipsBookingBody: "Luglio–agosto è alta stagione. Prenotare con almeno 3–7 giorni di anticipo. Alcuni operatori sono al completo settimane prima. I giorni feriali sono più facili dei weekend. Confermare sempre la prenotazione per telefono il giorno prima.",
         },
         de: {
           propertyName: "San Rocco",
@@ -906,6 +946,8 @@
           rules_wifi_title: "📶 WLAN",
           rules_wifi_ssid: "melli-fibra",
           rules_wifi_password: "04930493",
+          rules_wifi_ext_ssid: "melli-fibra-ext",
+          rules_wifi_ext_note: "Dieses Netzwerk verwenden, wenn das Hauptsignal schwach ist",
           rules_kitchen_title: "🍽️ Küche — Spülmaschine",
           rules_kitchen_body: "Die Gäste dürfen die Küche nutzen und alle Utensilien und Zubehörteile frei verwenden.\nIch habe einige Vorräte hinterlassen, die Sie gerne nutzen dürfen. Aus Fairness gegenüber den nächsten Gästen bitte ich Sie höflich, alles Verbrauchte zu ersetzen.\nIch koche leidenschaftlich gerne – wenn Sie frische hausgemachte Pasta ausprobieren möchten, lassen Sie es mich wissen, ich zeige Ihnen, wie man die \"Pastamaker\" benutzt.\nHINWEIS: Bitte öffnen Sie die Spülmaschine nicht, nachdem sie gestartet wurde, da sie aufgrund eines Sensorproblems nicht stoppt und Wasser austreten kann.",
           rules_jacuzzi_title: "🛁 Jacuzzi",
@@ -941,6 +983,12 @@
           boat_attribution: "Geschrieben von einem Gast — Danke, Philipp!",
           boat_notTested: "Nicht persönlich getestet",
           boat_tipsTitle: "Allgemeine Tipps",
+          boat_tipsFuelTitle: "Kraftstoffkosten",
+          boat_tipsFuelBody: "40-PS-Boote verbrauchen typischerweise €20–30 Kraftstoff für einen vollen Tag. Größere Motoren (115–260 PS) können €80–150+ kosten. Immer fragen, ob Kraftstoff im Mietpreis enthalten ist.",
+          boat_tipsSportsTitle: "Wassersport",
+          boat_tipsSportsBody: "Für Wasserski und Wakeboarden braucht man mindestens 115 PS. Ein 40-PS-Boot kann einen Anfänger auf Wasserskiern bei ruhigen Bedingungen ziehen, ist aber für Wakeboarden zu schwach. Immer beim Vermieter nachfragen, bevor Ausrüstung geladen wird.",
+          boat_tipsBookingTitle: "Buchungshinweise",
+          boat_tipsBookingBody: "Juli–August ist Hochsaison. Mindestens 3–7 Tage im Voraus buchen. Einige Vermieter sind wochenlang ausgebucht. Wochentags ist es einfacher als am Wochenende. Reservierung immer am Vortag telefonisch bestätigen.",
         },
         es: {
           propertyName: "San Rocco",
@@ -986,6 +1034,8 @@
           rules_wifi_title: "📶 WiFi",
           rules_wifi_ssid: "melli-fibra",
           rules_wifi_password: "04930493",
+          rules_wifi_ext_ssid: "melli-fibra-ext",
+          rules_wifi_ext_note: "Use esta red si la señal principal es débil",
           rules_kitchen_title: "🍽️ Cocina — Lavavajillas",
           rules_kitchen_body: "Los huéspedes pueden usar la cocina y todos los utensilios y accesorios libremente.\nHe dejado algunos suministros que puede usar. Por consideración hacia los próximos huéspedes, le pido amablemente que reponga lo que consuma.\nMe encanta cocinar, así que si está interesado en hacer pasta fresca casera, dígamelo y le mostraré cómo usar la \"Pastamaker\".\nNOTA: cuando use el lavavajillas, no lo abra después de iniciarlo, porque debido a un problema en el sensor no se detiene y puede salir agua.",
           rules_jacuzzi_title: "🛁 Jacuzzi",
@@ -1021,6 +1071,12 @@
           boat_attribution: "Escrito por un huésped — ¡gracias, Philipp!",
           boat_notTested: "No probado personalmente",
           boat_tipsTitle: "Consejos Generales",
+          boat_tipsFuelTitle: "Costes de Combustible",
+          boat_tipsFuelBody: "Los barcos de 40 CV consumen normalmente €20–30 en combustible para un día completo. Los motores más grandes (115–260 CV) pueden costar €80–150+. Preguntar siempre si el combustible está incluido en el precio de alquiler.",
+          boat_tipsSportsTitle: "Deportes Acuáticos",
+          boat_tipsSportsBody: "Para el esquí acuático y el wakeboard se necesitan al menos 115 CV. Un barco de 40 CV puede arrastrar a un principiante en esquís en condiciones de calma, pero es insuficiente para el wakeboard. Preguntar siempre al operador antes de cargar el equipo.",
+          boat_tipsBookingTitle: "Consejos de Reserva",
+          boat_tipsBookingBody: "Julio–agosto es temporada alta. Reservar con al menos 3–7 días de antelación. Algunos operadores están completos con semanas de antelación. Entre semana es más fácil que los fines de semana. Confirmar siempre la reserva por teléfono el día anterior.",
         },
         fr: {
           propertyName: "San Rocco",
@@ -1066,6 +1122,8 @@
           rules_wifi_title: "📶 WiFi",
           rules_wifi_ssid: "melli-fibra",
           rules_wifi_password: "04930493",
+          rules_wifi_ext_ssid: "melli-fibra-ext",
+          rules_wifi_ext_note: "Utiliser ce réseau si le signal principal est faible",
           rules_kitchen_title: "🍽️ Cuisine — Lave-vaisselle",
           rules_kitchen_body: "Les hôtes sont les bienvenus pour utiliser la cuisine et tous les ustensiles et accessoires librement.\nJ\'ai laissé quelques provisions que vous pouvez utiliser. Par équité envers les prochains hôtes, je vous demande gentiment de remplacer ce que vous consommez.\nJ\'adore cuisiner, donc si vous souhaitez faire des pâtes fraîches maison, dites-le moi et je vous montrerai comment utiliser la \"Pastamaker\".\nNOTE : lorsque vous utilisez le lave-vaisselle, ne l\'ouvrez pas après son démarrage, car en raison d\'un problème de capteur, il ne s\'arrête pas et de l\'eau peut sortir.",
           rules_jacuzzi_title: "🛁 Jacuzzi",
@@ -1101,6 +1159,12 @@
           boat_attribution: "Écrit par un hôte — merci, Philipp !",
           boat_notTested: "Non testé personnellement",
           boat_tipsTitle: "Conseils Généraux",
+          boat_tipsFuelTitle: "Coûts du Carburant",
+          boat_tipsFuelBody: "Les bateaux de 40 CV consomment généralement €20–30 de carburant pour une journée complète. Les moteurs plus grands (115–260 CV) peuvent coûter €80–150+. Toujours demander si le carburant est inclus dans le prix de location.",
+          boat_tipsSportsTitle: "Sports Nautiques",
+          boat_tipsSportsBody: "Pour le ski nautique et le wakeboard, il faut au moins 115 CV. Un bateau de 40 CV peut tirer un débutant sur des skis nautiques par temps calme, mais est sous-motorisé pour le wakeboard. Toujours demander à l'opérateur avant de charger l'équipement.",
+          boat_tipsBookingTitle: "Conseils de Réservation",
+          boat_tipsBookingBody: "Juillet–août est la haute saison. Réserver au moins 3–7 jours à l'avance. Certains opérateurs sont complets des semaines à l'avance. La semaine est plus facile que le week-end. Toujours confirmer la réservation par téléphone la veille.",
         }
       },
 
@@ -1320,7 +1384,7 @@
     }
 
     // ─── Card builder ────────────────────────────────────────────────────────
-    function renderCard({ title, description, mapsUrl, mapsLabel, favourite, favouriteLabel, infoUrl, infoLabel, note, callNumber, whatsappNumber, distanceKm, distanceLabel }) {
+    function renderCard({ title, description, mapsUrl, mapsLabel, favourite, favouriteLabel, infoUrl, infoLabel, note, callNumber, whatsappNumber, distanceKm }) {
       let badges = '';
       if (favourite && favouriteLabel) badges += `<span class="badge-favourite">★ ${escHtml(favouriteLabel)}</span> `;
       if (distanceKm != null) badges += `<span class="badge-distance">📍 ${distanceKm} km</span> `;
@@ -1451,9 +1515,16 @@
           ${ruleBlocks}
           <div class="info-box">
             <h3>${escHtml(s('rules_wifi_title'))}</h3>
-            <div class="wifi-credentials">
-              <div>Network: <span>${escHtml(s('rules_wifi_ssid'))}</span></div>
-              <div>Password: <span>${escHtml(s('rules_wifi_password'))}</span></div>
+            <div class="wifi-box">
+              <div class="wifi-network">
+                <div>Network: <span>${escHtml(s('rules_wifi_ssid'))}</span></div>
+                <div>Password: <span>${escHtml(s('rules_wifi_password'))}</span></div>
+              </div>
+              <div class="wifi-network wifi-network--ext">
+                <div>Network: <span>${escHtml(s('rules_wifi_ext_ssid'))}</span></div>
+                <div>Password: <span>${escHtml(s('rules_wifi_password'))}</span></div>
+                <div class="wifi-ext-note">${escHtml(s('rules_wifi_ext_note'))}</div>
+              </div>
             </div>
           </div>
         </div>`;
@@ -1499,8 +1570,7 @@
         favourite: item.favourite,
         favouriteLabel: favouriteLabelKey ? s(favouriteLabelKey) : null,
         note: item.note,
-        distanceKm: item.distanceKm != null ? item.distanceKm : null,
-        distanceLabel: item.distanceKm != null ? s('distance_label') : null
+        distanceKm: item.distanceKm != null ? item.distanceKm : null
       })).join('');
 
       el.innerHTML = createSectionHeader(titleKey) + `
@@ -1564,12 +1634,12 @@
 
       const tipsHtml = `<div class="tips-section card">
         <h3>${escHtml(s('boat_tipsTitle'))}</h3>
-        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">Fuel Costs</h3>
-        <p>40 HP boats typically use €20–30 in fuel for a full day. Larger engines (115–260 HP) can cost €80–150+. Always ask whether fuel is included in the rental price.</p>
-        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">Water Sports</h3>
-        <p>For water skiing and wakeboarding you need at least 115 HP. A 40 HP boat can pull a beginner on water skis in calm conditions but is underpowered for wakeboarding. Always ask the operator before loading equipment.</p>
-        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">Booking Advice</h3>
-        <p>July–August is peak season. Book at least 3–7 days in advance. Some operators are fully booked weeks ahead. Mid-week is easier than weekends. Always confirm the reservation by phone the day before.</p>
+        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">${escHtml(s('boat_tipsFuelTitle'))}</h3>
+        <p>${escHtml(s('boat_tipsFuelBody'))}</p>
+        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">${escHtml(s('boat_tipsSportsTitle'))}</h3>
+        <p>${escHtml(s('boat_tipsSportsBody'))}</p>
+        <h3 style="font-size:var(--font-size-base);margin-top:0.75rem">${escHtml(s('boat_tipsBookingTitle'))}</h3>
+        <p>${escHtml(s('boat_tipsBookingBody'))}</p>
       </div>`;
 
       el.innerHTML = createSectionHeader('boat_title') + `

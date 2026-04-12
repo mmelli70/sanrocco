@@ -138,8 +138,8 @@ indicator visible, correctly styled, with no other changes.
   the UI does not enforce minimum or maximum lengths.
 - The initial beach list will be populated with the owner's actual recommendations
   (seed content below).
-- Translation of beach names and descriptions is implemented for IT and DE — each beach
-  entry has `it` and `de` description fields alongside the English `description`.
+- Translation of beach names and descriptions is implemented for IT, DE, ES, and FR — each beach
+  entry has `it`, `de`, `es`, and `fr` description fields alongside the English `description`.
 - The beaches section shares the same card visual style as the restaurants section
   (feature 004); no new card variant is introduced beyond the favourite indicator.
 - Google Maps URLs follow the same convention as feature 004 (`https://maps.google.com/?q=...`).

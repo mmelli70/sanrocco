@@ -222,13 +222,12 @@ the file — the new password is shown in the WiFi block.
 - **FR-009**: The **Air Conditioning** sub-section MUST instruct the guest to empty
   the water container on the balcony of the largest single room every two days when
   the air conditioner is in regular use.
-- **FR-010**: The **Waste** sub-section heading MUST be present and translatable.
-  The body content (`CONTENT.strings[lang].houseRulesBody.waste`) is a placeholder
-  — content will be provided by the owner before the May release. During development
-  the sub-section MUST render with a visible "Content coming soon" placeholder so
-  the layout is validated before real content is available.
+- **FR-010**: The **Waste** sub-section MUST display the full day-by-day waste
+  collection schedule (paper/cardboard, glass/metal, unsorted waste, organic waste)
+  stored in `CONTENT.strings[lang].rules_waste_body` and translatable in all 5
+  languages (EN/IT/DE/ES/FR).
 - **FR-011**: All rule text MUST be stored in `CONTENT.strings[lang]` and be
-  translatable (IT / EN / DE).
+  translatable (EN / IT / DE / ES / FR).
 - **FR-012**: The section MUST use the visual design system from feature 002.
   Each sub-section MUST render as a `.rule-item` (or equivalent card) component.
 - **FR-013**: The WiFi block MUST use the `.wifi-box` component from feature 002

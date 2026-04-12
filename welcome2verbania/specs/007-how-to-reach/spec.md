@@ -210,9 +210,8 @@ file — the new text is shown with no layout breakage.
   to close the gate at the bottom of the stairs. The text is stored in
   `CONTENT.strings[lang].reachTheHouse` and is translatable.
 - **FR-011**: The "Reach the House" sub-section MUST display exactly three photos
-  (e.g., gate, walkway, staircase). Photos are embedded as base64 data URIs and
-  injected by `build.sh` from `assets/`. Tokens `{{REACH_PHOTO_1}}`,
-  `{{REACH_PHOTO_2}}`, `{{REACH_PHOTO_3}}` are used as placeholders.
+  (gate, walkway, staircase). Photos are embedded as base64 data URIs in the
+  built `index.html` (injected from `assets/` by `build.sh` at build time).
 - **FR-012**: Each photo in the "Reach the House" sub-section MUST render as a
   full-width (or near full-width) image within the content column, with a brief
   optional caption. No horizontal overflow on 320 dp screens.

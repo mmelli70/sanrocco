@@ -130,8 +130,8 @@ no other changes required.
 - "Supermarkets" is used as the section name but in practice the list may include
   any type of shop (grocery, bakery, market). The data structure does not restrict
   shop type.
-- Translation is implemented for IT and DE — each shop entry has `it` and `de`
-  description fields alongside the English `description`.
+- Translation is implemented for IT, DE, ES, and FR — each shop entry has `it`, `de`,
+  `es`, and `fr` description fields alongside the English `description`.
 
 ## Seed Content
 
