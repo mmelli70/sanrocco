@@ -13,7 +13,7 @@ at build/edit time. The logical content model is:
 | Field | Type | Example | Notes |
 |-------|------|---------|-------|
 | `propertyName` | string | `"San Rocco"` | Large heading; top of text stack |
-| `subtitle` | string | `"Bed & Breakfast Guest Guide"` | Below property name |
+| `subtitle` | string | `"Guest Guide"` | Below property name |
 | `location` | string | `"Verbania - Italy"` | Below subtitle |
 | `backgroundImage` | base64 data URI | `data:image/jpeg;base64,...` | Inlined in CSS |
 | `version` | string | `"1.0.0"` | Visible in document footer or meta |
@@ -41,7 +41,7 @@ Each language entry in the `CONTENT` object maps the same keys to translated str
 | Key | EN value | Notes |
 |-----|----------|-------|
 | `propertyName` | `"San Rocco"` | Proper noun — likely same across languages |
-| `subtitle` | `"Bed & Breakfast Guest Guide"` | Translated per language |
+| `subtitle` | `"Guest Guide"` | Translated per language |
 | `location` | `"Verbania - Italy"` | Likely same across languages |
 | `languageSelectorLabel` | `"Select language"` | Screen-reader label for the selector |
 

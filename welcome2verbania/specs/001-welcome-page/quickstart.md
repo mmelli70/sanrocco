@@ -24,7 +24,7 @@ const CONTENT = {
   strings: {
     en: {
       propertyName: "San Rocco",
-      subtitle:     "Bed & Breakfast Guest Guide",
+      subtitle:     "Guest Guide",
       location:     "Verbania - Italy",
       ...
     }

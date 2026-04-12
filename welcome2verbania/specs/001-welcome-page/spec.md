@@ -24,7 +24,7 @@ and all text and the background image are visible.
 
 1. **Given** the guest receives the file via WhatsApp, **When** they tap to open it,
    **Then** the welcome screen displays with background image, "San Rocco",
-   "Bed & Breakfast Guest Guide", and "Verbania - Italy" visible without scrolling.
+   "Guest Guide", and "Verbania - Italy" visible without scrolling.
 2. **Given** the device is in airplane mode, **When** the guest opens the file,
    **Then** the page loads fully with no broken images or missing text.
 3. **Given** the page is open, **When** the guest looks for the language selector,
@@ -68,7 +68,7 @@ switches all text to the selected language with no page reload.
 ### Functional Requirements
 
 - **FR-001**: The page MUST display the property name "San Rocco" prominently.
-- **FR-002**: The page MUST display the subtitle "Bed & Breakfast Guest Guide" below
+- **FR-002**: The page MUST display the subtitle "Guest Guide" below
   the property name.
 - **FR-003**: The page MUST display the location "Verbania - Italy" below the subtitle.
 - **FR-004**: The page MUST display a language selector with flag icons below the
@@ -113,7 +113,7 @@ switches all text to the selected language with no page reload.
 - The welcome screen is the first thing the guest sees when opening the file;
   it acts as a cover page before navigating to the guide content.
 - Text capitalisation follows the user's specification exactly:
-  "San Rocco" / "Bed & Breakfast Guest Guide" / "Verbania - Italy".
+  "San Rocco" / "Guest Guide" / "Verbania - Italy".
 - The file is deployed on Netlify (https://welcome2verbania.netlify.app) and also
   distributable as a `.html` WhatsApp/email attachment.
 - An "Enter Guide" button with `onclick="navigate('home')"` is used for WhatsApp

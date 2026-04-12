@@ -6,7 +6,7 @@
 
 ## Summary
 
-Build the full-viewport welcome screen for the San Rocco B&B guest guide. The
+Build the full-viewport welcome screen for the San Rocco guest guide. The
 deliverable is a section of a single self-contained HTML file showing a background
 image, the property name, subtitle, location, and a language-flag selector. All
 assets are inlined; the file works with zero network access.

@@ -43,7 +43,7 @@
 
 **Goal**: Full-viewport welcome screen — background image, overlay, and text stack visible without scrolling on a 360 dp phone.
 
-**Independent Test**: Open `index.html` from the file system with airplane mode on. The background image (or fallback colour), "San Rocco", "Bed & Breakfast Guest Guide", and "Verbania - Italy" must all be visible without scrolling on a 360 × 640 dp screen.
+**Independent Test**: Open `index.html` from the file system with airplane mode on. The background image (or fallback colour), "San Rocco", "Guest Guide", and "Verbania - Italy" must all be visible without scrolling on a 360 × 640 dp screen.
 
 - [x] T007 [US1] Add background layer to `index.html`: a `<div class="bg">` inside `.screen` styled with `background-image: url('data:image/jpeg;base64,PLACEHOLDER')`, `background-size: cover`, `background-position: center`, `position: absolute; inset: 0`, and fallback `background-color: #2c3e50`
 - [x] T008 [P] [US1] Add the dark overlay to `index.html`: a `<div class="overlay">` inside `.screen` with `position: absolute; inset: 0; background: rgba(0,0,0,0.35)` layered above `.bg`
