@@ -114,12 +114,16 @@ The owner updates pricing, contact details, or adds a new operator by editing th
 - **FR-003**: Each operator entry MUST support these fields:
   - `name` (string, required)
   - `website` (URL, optional)
-  - `location` (string, optional)
+  - `location` (string, optional — English). Language variants: `location_it`,
+    `location_de`, `location_es`, `location_fr` (optional — translated prose locations)
   - `contact` object with optional sub-fields: `person`, `phone`, `mobile`,
     `whatsapp`, `email`
-  - `fleet` (array of strings, optional — each item is one boat/price line)
-  - `notes` (array of strings, optional — important bullet points)
-  - `review` (string, optional — personal experience text)
+  - `fleet` (array of strings, optional — each item is one boat/price line).
+    Language variants: `fleet_it`, `fleet_de`, `fleet_es`, `fleet_fr` (for prose fleet descriptions)
+  - `notes` (array of strings, optional — important bullet points in English).
+    Language variants: `notes_it`, `notes_de`, `notes_es`, `notes_fr`
+  - `review` (string, optional — personal experience text in English).
+    Language variants: `review_it`, `review_de`, `review_es`, `review_fr`
   - `notTested` (boolean, optional — displays a "not personally tested" disclaimer)
 - **FR-004**: Each operator sub-section MUST display its `name` as a heading.
 - **FR-005**: If `website` is present, it MUST be shown as a tappable link opening
@@ -142,6 +146,10 @@ The owner updates pricing, contact details, or adds a new operator by editing th
   All 5 languages (EN/IT/DE/ES/FR) must have these keys defined.
 - **FR-011**: All text content MUST be stored in `CONTENT` and be translatable
   (EN / IT / DE / ES / FR). Contact details (phone numbers, URLs) are language-neutral.
+  Operator `fleet`, `notes`, `location`, and `review` fields use language-variant
+  keys (`field_it`, `field_de`, `field_es`, `field_fr`) with English as fallback.
+  UI labels (`Fleet`, `Notes`, `Website`) are stored in `CONTENT.strings[lang]`
+  as `boat_fleet`, `boat_notes`, `boat_website` and translated in all 5 languages.
 - **FR-012**: The section MUST use the visual design system from feature 002.
   Operator sub-sections use the `.info-box` or `.rule-item` component. The General
   Tips block uses `.info-box`. No new component variants are introduced.
@@ -150,8 +158,11 @@ The owner updates pricing, contact details, or adds a new operator by editing th
 
 ### Key Entities
 
-- **Operator Entry**: `{ name, website?, location?, contact?: { person?, phone?,
-  mobile?, whatsapp?, email? }, fleet?: string[], notes?: string[], review?: string,
+- **Operator Entry**: `{ name, website?, location?, location_it?, location_de?,
+  location_es?, location_fr?, contact?: { person?, phone?, mobile?, whatsapp?,
+  email? }, fleet?: string[], fleet_it?, fleet_de?, fleet_es?, fleet_fr?,
+  notes?: string[], notes_it?, notes_de?, notes_es?, notes_fr?,
+  review?: string, review_it?, review_de?, review_es?, review_fr?,
   notTested?: bool }` — stored in `CONTENT.sections.boatRental[]`.
 - **Attribution Note**: Introductory credit line to the guest author.
 - **General Tips Block**: Closing advisory text on fuel, water sports, and booking.
