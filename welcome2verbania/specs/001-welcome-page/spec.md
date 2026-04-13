@@ -114,8 +114,9 @@ switches all text to the selected language with no page reload.
   it acts as a cover page before navigating to the guide content.
 - Text capitalisation follows the user's specification exactly:
   "San Rocco" / "Guest Guide" / "Verbania - Italy".
-- The file is deployed on Netlify (https://welcome2verbania.netlify.app) and also
-  distributable as a `.html` WhatsApp/email attachment.
+- The file is deployed on Cloudflare Pages (https://welcome2verbania.pages.dev).
+  Deploy command: `npx wrangler pages deploy . --project-name welcome2verbania`.
+  Also distributable as a `.html` WhatsApp/email attachment.
 - An "Enter Guide" button with `onclick="navigate('home')"` is used for WhatsApp
   WebView compatibility (event delegation was insufficient in that context).
 - `initApp()` is called immediately at script parse time (not inside DOMContentLoaded)
